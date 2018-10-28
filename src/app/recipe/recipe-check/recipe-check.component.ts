@@ -12,4 +12,8 @@ export class RecipeCheckComponent implements OnInit {
   ngOnInit() {
   }
 
+  search(recipe) {
+    
+  }
+
 }
