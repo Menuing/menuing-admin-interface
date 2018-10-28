@@ -1,3 +1,32 @@
-<p>
-  modify-recipe works!
-</p>
+<div class="col-md-10 offset-1">
+  <form class="form-search-recipe" (submit)="addRecipe(recipe)">
+    <h5>Recipe id 1</h5>
+    <label for="recipe" class="sr-only">Recipe Name</label>
+    <input type="text" id="recipe" class="form-control" placeholder="Recipe name" value="Truita de patates" required #recipe>
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text">Ingredients</span>
+      </div>
+      <textarea class="form-control" aria-label="Ingredients">
+2 Ous
+2 patates
+Oli
+Sal
+      </textarea>
+    </div>
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text">Instructions</span>
+      </div>
+      <textarea class="form-control" aria-label="Instructions">
+1. Trencar 2 ous, tirar sal i remenar en un plat fons.
+2. Pelar i tallar 1-2 patates.
+3. Fregir una mica les patates.
+4. Tirar els ous remenats i les patates en una paella gran.
+5. Fer a foc mig pels dos costats.
+      </textarea>
+    </div>
+    <p></p>
+    <button class="btn btn-lg btn-success" type="submit">Update recipe</button>
+  </form>
+</div>
