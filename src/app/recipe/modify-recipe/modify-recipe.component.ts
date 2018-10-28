@@ -12,4 +12,7 @@ export class ModifyRecipeComponent implements OnInit {
   ngOnInit() {
   }
 
+  modifyRecipe(recipe){
+    
+  }
 }
