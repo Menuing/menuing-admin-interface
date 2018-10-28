@@ -5,11 +5,15 @@ import { routes } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { LoginComponent } from './login/login.component';
+import { RecipeCheckComponent } from './recipe/recipe-check/recipe-check.component';
+import { RecipeDetailComponent } from './recipe/recipe-detail/recipe-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    RecipeCheckComponent,
+    RecipeDetailComponent
   ],
   imports: [
     BrowserModule,
