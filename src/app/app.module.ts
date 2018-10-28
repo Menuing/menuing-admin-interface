@@ -12,7 +12,6 @@ import { ModifyRecipeComponent } from './recipe/modify-recipe/modify-recipe.comp
 import { AddNutritionistComponent } from './nutritionist/add-nutritionist/add-nutritionist.component';
 import { ListNutritionistComponent } from './nutritionist/list-nutritionist/list-nutritionist.component';
 import { DetailNutritionistComponent } from './nutritionist/detail-nutritionist/detail-nutritionist.component';
-import { DeleteNutritionistComponent } from './nutritionist/delete-nutritionist/delete-nutritionist.component';
 
 @NgModule({
   declarations: [
@@ -24,8 +23,7 @@ import { DeleteNutritionistComponent } from './nutritionist/delete-nutritionist/
     ModifyRecipeComponent,
     AddNutritionistComponent,
     ListNutritionistComponent,
-    DetailNutritionistComponent,
-    DeleteNutritionistComponent
+    DetailNutritionistComponent
   ],
   imports: [
     BrowserModule,

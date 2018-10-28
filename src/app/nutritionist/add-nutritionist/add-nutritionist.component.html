@@ -1,3 +1,15 @@
-<p>
-  add-nutritionist works!
-</p>
+<p></p>
+<div class="col-md-10 offset-1">
+  <form class="form-search-recipe" (submit)="addRecipe(recipe)">
+    <label for="nutritionist" class="sr-only">Nutritionist Name</label>
+    <input type="text" id="nutritionist" class="form-control" placeholder="Nutritionist name" required #recipe>
+    <label for="speciality" class="sr-only">Speciality</label>
+    <input type="text" id="nutritionist" class="form-control" placeholder="For example, sports" required #recipe>
+    <label for="dni" class="sr-only">DNI</label>
+    <input type="text" id="nutritionist" class="form-control" placeholder="32423443Q" required #recipe>
+    <label for="number" class="sr-only">Phone number</label>
+    <input type="text" id="nutritionist" class="form-control" placeholder="623234523" required #recipe>
+    <p></p>
+    <button class="btn btn-lg btn-success" type="submit">Create recipe</button>
+  </form>
+</div>
