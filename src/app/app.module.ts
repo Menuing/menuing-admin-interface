@@ -9,6 +9,9 @@ import { RecipeCheckComponent } from './recipe/recipe-check/recipe-check.compone
 import { RecipeDetailComponent } from './recipe/recipe-detail/recipe-detail.component';
 import { AddRecipeComponent } from './recipe/add-recipe/add-recipe.component';
 import { ModifyRecipeComponent } from './recipe/modify-recipe/modify-recipe.component';
+import { AddNutritionistComponent } from './nutritionist/add-nutritionist/add-nutritionist.component';
+import { ListNutritionistComponent } from './nutritionist/list-nutritionist/list-nutritionist.component';
+import { DetailNutritionistComponent } from './nutritionist/detail-nutritionist/detail-nutritionist.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +20,10 @@ import { ModifyRecipeComponent } from './recipe/modify-recipe/modify-recipe.comp
     RecipeCheckComponent,
     RecipeDetailComponent,
     AddRecipeComponent,
-    ModifyRecipeComponent
+    ModifyRecipeComponent,
+    AddNutritionistComponent,
+    ListNutritionistComponent,
+    DetailNutritionistComponent
   ],
   imports: [
     BrowserModule,
