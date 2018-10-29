@@ -12,4 +12,5 @@ export class ListNutritionistComponent implements OnInit {
   ngOnInit() {
   }
 
+  search(nutritionist){}
 }
