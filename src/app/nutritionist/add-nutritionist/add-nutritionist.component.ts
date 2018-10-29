@@ -12,4 +12,5 @@ export class AddNutritionistComponent implements OnInit {
   ngOnInit() {
   }
 
+  addNutritionist(nutritionist){}
 }
