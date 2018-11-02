@@ -1,4 +1,6 @@
 <div class='col-md-10 offset-1'>
+  <button class="btn btn-lg btn-info" routerLink="/recipe-add">Add recipes</button>
+  <button class="btn btn-lg btn-info" routerLink="/nutritionists">Nutritionists</button>
   <div class="row">
     <h3 class="col-md-12">Recipes</h3>
     <div class="col-md-12">
@@ -13,7 +15,7 @@
 
 
 <div class="row p-3">
-  <div class="card col-md-12">
+  <div routerLink="/recipe-detail" class="card col-md-12">
     <div class="card-body">
       <h5 class="card-title">Truita de patates:</h5>
       
@@ -22,9 +24,10 @@
       
       <h5 class="card-subtitle">Puntuació:</h5>
       <p class="card-text">4.5/5</p>
+      <p class="font-italic">click to see details</p>
     </div>
   </div>
-  <div class="card col-md-12">
+  <div routerLink="/recipe-detail" class="card col-md-12">
     <div class="card-body">
       <h5 class="card-title">Pizza de NO piña:</h5>
       
@@ -33,6 +36,7 @@
       
       <h5 class="card-subtitle">Puntuació:</h5>
       <p class="card-text">5/5</p>
+      <p class="font-italic">click to see details</p>
     </div>
   </div>
 </div>
