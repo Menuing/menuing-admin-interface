@@ -1,5 +1,7 @@
 # MenuingAdminInterface
 
+A demo of the project can be found [here](https://menuing.github.io/menuing-admin-interface/).
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
 
 ## Development server
