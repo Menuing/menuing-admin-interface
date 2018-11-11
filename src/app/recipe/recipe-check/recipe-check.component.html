@@ -4,7 +4,7 @@
   <div class="row">
     <h3 class="col-md-12">Recipes</h3>
     <div class="col-md-12">
-        <form class="form-search-recipe" (submit)="search(recipe)">
+        <form class="form-search-recipe" [formGroup]="searchRecipeForm" (submit)="search(recipe)">
             <label for="recipe" class="sr-only">Recipe name</label>
             <input type="text" id="recipe" class="form-control" placeholder="Recipe name" required #recipe>
             <p></p>
