@@ -9,16 +9,17 @@ export class RecipeService {
   constructor(private http: HttpClient) {
   }
 
-  /*getAllRecipes() {
-    const headers = new Headers({'Content-Type': 'application/json'});
-    const options = new RequestOptions({headers: headers});
+  getAllRecipes() {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json'
+      })
+    };
 
-    return this.http.get(`${environment.API}/api/resources/recipes`, options)
-      .map((res: Response) => res.json()._embedded.recipe.map(json => new Recipe(json)))
-      .catch((error: any) => Observable.throw(error.json()));
+    return this.http.get(`${environment.API}/api/resources/recipes`, httpOptions);
   }
 
-  getRecipes(name: string): Observable<Recipe[]> {
+  /*getRecipes(name: string): Observable<Recipe[]> {
     const headers = new Headers({'Content-Type': 'application/json'});
     const options = new RequestOptions({headers: headers});
     return this.http.get(`${environment.API}/api/resources/recipes/?name=${name}`, options)
@@ -32,7 +33,7 @@ export class RecipeService {
         'Content-Type':  'application/json'
       })
     };
-
+    console.log(recipe);
     return this.http.post<Recipe>(`${environment.API}/api/resources/recipes`, recipe, httpOptions);
   }
 

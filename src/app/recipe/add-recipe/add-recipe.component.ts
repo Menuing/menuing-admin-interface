@@ -22,9 +22,9 @@ export class AddRecipeComponent implements OnInit {
               private router: Router,
               private recipeService: RecipeService) {
     this.recipeForm = this.fb.group({
-      'name': ['name',  Validators.required],
-      'instructions': ['instructions',  Validators.required],
-      'ingredients': ['ingredients',  Validators.required]
+      'name': ['',  Validators.required],
+      'instructions': ['',  Validators.required],
+      'ingredients': ['',  Validators.required]
     });
   }
 
@@ -33,10 +33,7 @@ export class AddRecipeComponent implements OnInit {
   }
 
   onSubmit(): void {
-    this.recipe = new Recipe();
-    this.recipe.name = this.name;
-    this.recipe.instructions = this.instructions;
-    this.recipe.ingredients = this.ingredients;
+    this.recipe = new Recipe(this.recipeForm.getRawValue());
     this.recipeService.addRecipe(this.recipe)
       .subscribe(
         recipe => this.router.navigate(['/recipes/']),
