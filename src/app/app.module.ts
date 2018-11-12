@@ -12,6 +12,7 @@ import { ModifyRecipeComponent } from './recipe/modify-recipe/modify-recipe.comp
 import { AddNutritionistComponent } from './nutritionist/add-nutritionist/add-nutritionist.component';
 import { ListNutritionistComponent } from './nutritionist/list-nutritionist/list-nutritionist.component';
 import { DetailNutritionistComponent } from './nutritionist/detail-nutritionist/detail-nutritionist.component';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -28,9 +29,10 @@ import { DetailNutritionistComponent } from './nutritionist/detail-nutritionist/
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [],
+  providers: [LoginComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
