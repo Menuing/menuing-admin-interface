@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Http, Headers } from '@angular/http';
-import { HttpHeaders } from '@angular/common/http';
+import {ActivatedRoute} from '@angular/router';
+import { LoginService } from './login.service';
+import { Login } from './login';
 
 @Component({
   selector: 'app-login',
@@ -8,17 +9,22 @@ import { HttpHeaders } from '@angular/common/http';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  private apiUrl = 'http://localhost:8080/api';
-  private headers = new Headers({'Content-Type': 'text/uri-list'});
-  private user;
-  constructor(private http : Http) { }
+  user: Login;
+  errorMessage = 'This user doesn\'t exist or bad credentials';
+
+  constructor(private route: ActivatedRoute, private loginService: LoginService) { }
 
   ngOnInit() {
+    var id = this.route.params['value'].id;
+    this.loginService.getUser(username)
+      .subscribe(
+        (user: Login) => {
+          this.user = user;
+        },
+        error => this.errorMessage = <any>error.message);
   }
 
-  login(name, pwd) {
-    this.user = {username : name};
-    this.http.get(this.apiUrl+'users',JSON.stringify(this.user));
+  login(username, pwd) {
   }
 
 }

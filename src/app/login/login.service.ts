@@ -19,13 +19,13 @@ export class LoginService {
     return this.http.get(`${environment.API}/api/resources/users`, httpOptions);
   }
 
-  getUser(id: string) {
+  getUser(username: string) {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type':  'application/json'
       })
     };
     
-    return this.http.get(`${environment.API}/api/resources/users/id/${Number(id)}`, httpOptions);
+    return this.http.get(`${environment.API}/api/resources/users/?username=${username}`, httpOptions);
   }
 }
