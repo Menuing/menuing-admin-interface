@@ -1,6 +1,8 @@
     
 export class Recipe{
  
+    id;
+
     name:string;
 
     instructions:string;

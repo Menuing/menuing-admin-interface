@@ -16,7 +16,7 @@ export class RecipeService {
       })
     };
 
-    return this.http.get(`${environment.API}/api/resources/recipes`, httpOptions);
+    return this.http.get(`${environment.API}/api/resources/recipes/all`, httpOptions);
   }
 
   /*getRecipes(name: string): Observable<Recipe[]> {

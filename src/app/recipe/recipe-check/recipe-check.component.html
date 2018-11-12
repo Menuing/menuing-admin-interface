@@ -15,27 +15,26 @@
 
 
 <div class="row p-3">
-  <div routerLink="/recipe-detail" class="card col-md-12">
-    <div class="card-body">
-      <h5 class="card-title">Truita de patates:</h5>
+  <div class="card col-md-12" *ngFor="let recipe of recipes">
+    <div class="card-body" routerLink="/recipe/{{recipe.id}}">
+      <h5 class="card-title">Name:<a routerLink="/recipe/{{recipe.id}}">{{recipe.name}}</a></h5>
       
       <h5 class="card-subtitle">Id:</h5>
-      <p class="card-text">1</p>
+      <p class="card-text">{{recipe.id}}</p>
       
+      <h5 class="card-subtitle">Ingredients:</h5>
+      <p class="card-text">{{recipe.ingredients}}</p>
+
+      <h5 class="card-subtitle">Instructions:</h5>
+      <p class="card-text">{{recipe.instructions}}</p>
+      
+      <h5 class="card-subtitle">Url:</h5>
+      <p class="card-text">{{recipe.url}}</p>
+
       <h5 class="card-subtitle">Puntuació:</h5>
-      <p class="card-text">4.5/5</p>
-      <p class="font-italic">click to see details</p>
-    </div>
-  </div>
-  <div routerLink="/recipe-detail" class="card col-md-12">
-    <div class="card-body">
-      <h5 class="card-title">Pizza de NO piña:</h5>
-      
-      <h5 class="card-subtitle">Id:</h5>
-      <p class="card-text">2</p>
-      
-      <h5 class="card-subtitle">Puntuació:</h5>
-      <p class="card-text">5/5</p>
+      <p class="card-text">{{recipe.averagePuntuation}}</p>
+
+
       <p class="font-italic">click to see details</p>
     </div>
   </div>
