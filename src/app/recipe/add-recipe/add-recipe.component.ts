@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {Recipe} from '../Recipe';
+import {Router} from '@angular/router';
+import {RecipeService} from '../recipe.service';
 
 @Component({
   selector: 'app-add-recipe',
@@ -7,11 +11,35 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddRecipeComponent implements OnInit {
 
-  constructor() { }
+  public recipe: Recipe;
+  public recipeForm: FormGroup;
+  public errorMessage: string;
+  public name: string;
+  public instructions: string;
+  public ingredients: string;
 
-  ngOnInit() {
+  constructor(private fb: FormBuilder,
+              private router: Router,
+              private recipeService: RecipeService) {
+    this.recipeForm = this.fb.group({
+      'name': ['',  Validators.required],
+      'instructions': ['',  Validators.required],
+      'ingredients': ['',  Validators.required]
+    });
   }
 
-  addRecipe(recipe){}
+  ngOnInit() {
+
+  }
+
+  onSubmit(): void {
+    this.recipe = new Recipe(this.recipeForm.getRawValue());
+    this.recipeService.addRecipe(this.recipe)
+      .subscribe(
+        recipe => this.router.navigate(['/recipes/']),
+        error => {
+          this.errorMessage = error.errors ? <any>error.errors[0].message : <any>error.message;
+        });
+  }
 
 }

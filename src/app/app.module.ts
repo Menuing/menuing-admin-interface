@@ -12,7 +12,10 @@ import { ModifyRecipeComponent } from './recipe/modify-recipe/modify-recipe.comp
 import { AddNutritionistComponent } from './nutritionist/add-nutritionist/add-nutritionist.component';
 import { ListNutritionistComponent } from './nutritionist/list-nutritionist/list-nutritionist.component';
 import { DetailNutritionistComponent } from './nutritionist/detail-nutritionist/detail-nutritionist.component';
-import { HttpModule } from '@angular/http';
+import { ReactiveFormsModule } from '@angular/forms';
+import { RecipeService } from './recipe/recipe.service';
+import { LoginService } from './login/login.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -29,10 +32,12 @@ import { HttpModule } from '@angular/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpModule,
+
+    ReactiveFormsModule,
+    HttpClientModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [LoginComponent],
+  providers: [RecipeService, LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -13,7 +13,7 @@ export const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
   {path: 'recipes', component: RecipeCheckComponent},
-  {path: 'recipe-detail', component: RecipeDetailComponent},
+  {path: 'recipe/:id', component: RecipeDetailComponent},
   {path: 'recipe-add', component: AddRecipeComponent},
   {path: 'recipe-modify', component: ModifyRecipeComponent},
   {path: 'nutritionists', component: ListNutritionistComponent},
