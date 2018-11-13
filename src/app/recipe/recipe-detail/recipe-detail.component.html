@@ -12,7 +12,7 @@
       <h5 class="card-subtitle">Ingredients:</h5>
       <p class="card-text">{{recipe.ingredients}}</p>
 
-      <h5 class="card-subtitle">Ingredients:</h5>
+      <h5 class="card-subtitle">Photo url:</h5>
       <p class="card-text">{{recipe.urlPhoto}}</p>
       
       <h5 class="card-subtitle">Instruccions:</h5>
@@ -20,6 +20,6 @@
     </div>
     <button type="button" class="btn btn-info col-md-2">Modify recipe</button>
     <p></p>
-  <button type="button" class="btn btn-danger col-md-2">Delete recipe</button>
+  <button type="button" class="btn btn-danger col-md-2"  (click)="onDelete()">Delete recipe</button>
   <p></p>
 </div>

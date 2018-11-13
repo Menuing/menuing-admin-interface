@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { RecipeService } from '../recipe.service';
 import { Recipe } from '../recipe';
 
@@ -13,7 +13,7 @@ export class RecipeDetailComponent implements OnInit {
   recipe :Recipe;
   errorMessage = '';
 
-  constructor(private route: ActivatedRoute, private recipeService: RecipeService) { }
+  constructor(private route: ActivatedRoute, private router: Router, private recipeService: RecipeService) { }
 
   ngOnInit() {
     var id = this.route.params['value'].id;
@@ -25,4 +25,12 @@ export class RecipeDetailComponent implements OnInit {
         error => this.errorMessage = <any>error.message);
   }
 
+  onDelete(){
+    this.recipeService.deleteRecipe(this.recipe.id).subscribe(
+      (ok) => {
+        this.router.navigate(['/recipes/']);
+      },
+      error => this.errorMessage = <any>error.message
+    );
+  }
 }

@@ -35,7 +35,6 @@ export class RecipeService {
         'Content-Type':  'application/json'
       })
     };
-    console.log(recipe);
     return this.http.post<Recipe>(`${environment.API}/api/resources/recipes`, recipe, httpOptions);
   }
 
@@ -50,12 +49,13 @@ export class RecipeService {
       .catch((error: any) => Observable.throw(error.json()));
   }*/
 
-  /*deleteRecipe(recipe: Recipe): Observable<Response> {
-    const headers = new Headers({'Content-Type': 'application/json'});
-    const options = new RequestOptions({headers: headers});
-
-    return this.http.delete(`${environment.API}/courts/${court.id}`, options)
-      .map((res: Response) => res)
-      .catch((error: any) => Observable.throw(error.json()));
-  }*/
+  deleteRecipe(id: Number) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json'
+      })
+    };
+    
+    return this.http.delete(`${environment.API}/api/resources/recipes/delete/${id}`, httpOptions);
+  }
 }
