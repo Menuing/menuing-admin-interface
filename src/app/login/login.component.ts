@@ -16,7 +16,10 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   receivedAdmin:Admin;
 
-  constructor(private fb:FormBuilder, private route:ActivatedRoute, private router: Router, private loginService: LoginService){}
+  constructor(private fb:FormBuilder, 
+    private route:ActivatedRoute, 
+    private router: Router, 
+    private loginService: LoginService){}
     
   ngOnInit() {
     console.log("entra");
@@ -27,20 +30,24 @@ export class LoginComponent implements OnInit {
   }
 
   login():void {
-    console.log("wtf");
-    this.admin = new Admin(this.loginForm.getRawValue);
+    this.admin = new Admin(this.loginForm.getRawValue());
     this.loginService.getUser(this.admin.username)
       .subscribe(
         (admin: Admin) => {
           this.receivedAdmin = admin;
+          console.log(this.receivedAdmin[0]);
+          if(this.receivedAdmin[0] == null ||
+            this.receivedAdmin[0].password == null || 
+          this.admin.password !== this.receivedAdmin[0].password){
+            alert("wrong");
+            return;
+          }   
+          this.router.navigate(['/recipes/']);
         },
         error => this.errorMessage = <any>error.message);
-    if(this.admin.password === this.receivedAdmin.password){
-      alert("wrong");
-      return;
-    }   
-
-    alert("sccess!!!");    
+    
+    console.log(this.admin);
+    
   }
 
 }

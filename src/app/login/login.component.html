@@ -4,9 +4,9 @@
   <h3>Menuing-app admin login</h3>
   <form class="form-signin" [formGroup]="loginForm" (ngSubmit)="login()">
     <label for="username" class="sr-only">User</label>
-    <input type="text" id="username" class="form-control" placeholder="Admin E-Mail" required #username>
+    <input type="text" id="username"  [formControl]="loginForm.controls['username']"  class="form-control" placeholder="Admin E-Mail" required #username>
     <label for="password" class="sr-only">Password</label>
-    <input type="password" id="password" class="form-control" placeholder="Password" required #password>
+    <input type="password" id="password"  [formControl]="loginForm.controls['password']" class="form-control" placeholder="Password" required #password>
     <p></p>
     <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
   

@@ -25,7 +25,7 @@ export class LoginService {
         'Content-Type':  'application/json'
       })
     };
-    
+    console.log(`${environment.API}/api/resources/users/?username=${username}`);
     return this.http.get(`${environment.API}/api/resources/users/?username=${username}`, httpOptions);
   }
 }
