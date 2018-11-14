@@ -14,6 +14,7 @@ import { ListNutritionistComponent } from './nutritionist/list-nutritionist/list
 import { DetailNutritionistComponent } from './nutritionist/detail-nutritionist/detail-nutritionist.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RecipeService } from './recipe/recipe.service';
+import { LoginService } from './login/login.service';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
@@ -31,11 +32,12 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
+
     ReactiveFormsModule,
     HttpClientModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [RecipeService],
+  providers: [RecipeService, LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
