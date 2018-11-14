@@ -1,15 +1,20 @@
-<p></p>
 <div class="col-md-10 offset-1">
-  <form class="form-search-recipe" [formGroup]="nutritionistForm" (submit)="addNutritionist(nutritionist)">
-    <label for="nutritionist" class="sr-only">Nutritionist Name</label>
-    <input type="text" id="nutritionist" class="form-control" placeholder="Nutritionist name" required #nutritionist>
-    <label for="speciality" class="sr-only">Speciality</label>
-    <input type="text" id="nutritionist" class="form-control" placeholder="For example, sports" required #nutritionist>
+  <form id="nutritionist-form" class="form-search-nutritionist" [formGroup]="nutritionistForm" (ngSubmit)="onSubmit()">
+    <label for="username" class="sr-only">Nutritionist Username</label>
+    <input type="text" id="username" class="form-control" [formControl]="nutritionistForm.controls['username']" placeholder="Nutritionist name">
+    
+    <label for="password" class="sr-only">Nutritionist Password</label>
+    <input type="password" id="password" class="form-control" [formControl]="nutritionistForm.controls['password']" placeholder="password">
+
+    <label for="speciallity" class="sr-only">Nutritionist speciality</label>
+    <input type="text" id="speciallity" class="form-control" [formControl]="nutritionistForm.controls['speciallity']" placeholder="speciality">
+
     <label for="dni" class="sr-only">DNI</label>
-    <input type="text" id="nutritionist" class="form-control" placeholder="32423443Q" required #nutritionist>
-    <label for="number" class="sr-only">Phone number</label>
-    <input type="text" id="nutritionist" class="form-control" placeholder="623234523" required #nutritionist>
+    <input type="text" id="dni" class="form-control" [formControl]="nutritionistForm.controls['dni']" placeholder="dni">
+    
+    <label for="phoneNumber" class="sr-only">Phone number</label>
+    <input type="text" id="phoneNumber" class="form-control" [formControl]="nutritionistForm.controls['phoneNumber']" placeholder="phoneNumber">
     <p></p>
-    <button class="btn btn-lg btn-success" type="submit">Create nutritionist</button>
+    <button class="btn btn-lg btn-success" type="submit">Create recipe</button>
   </form>
 </div>
