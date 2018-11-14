@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { NutritionistService } from '../nutritionist.service';
+import { Nutritionist } from '../nutritionist';
 
 @Component({
   selector: 'app-detail-nutritionist',
@@ -7,9 +10,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetailNutritionistComponent implements OnInit {
 
-  constructor() { }
+  nutritionist :Nutritionist;
+  errorMessage = '';
+
+  constructor(private route: ActivatedRoute, private router: Router, private nutritionistService: NutritionistService) { }
 
   ngOnInit() {
+    var id = this.route.params['value'].id;
+    this.nutritionistService.getNutritionist(id)
+      .subscribe(
+        (nutritionist: Nutritionist) => {
+          this.nutritionist = nutritionist;
+        },
+        error => this.errorMessage = <any>error.message);
+  }
+
+  onDelete(){
+    this.nutritionistService.deleteNutritionist(this.nutritionist.id).subscribe(
+      (ok) => {
+        this.router.navigate(['/nutritionists/']);
+      },
+      error => this.errorMessage = <any>error.message
+    );
   }
 
 }

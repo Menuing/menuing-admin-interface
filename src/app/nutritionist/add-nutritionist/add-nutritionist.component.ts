@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {Nutritionist} from '../Nutritionist';
+import {Router} from '@angular/router';
+import {NutritionistService} from '../nutritionist.service';
 
 @Component({
   selector: 'app-add-nutritionist',
@@ -7,10 +11,36 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddNutritionistComponent implements OnInit {
 
-  constructor() { }
+  public nutritionist: Nutritionist;
+  public nutritionistForm: FormGroup;
+  public errorMessage: string;
+  public name: string;
+  public instructions: string;
+  public ingredients: string;
 
-  ngOnInit() {
+  constructor(private fb: FormBuilder,
+              private router: Router,
+              private nutritionistService: NutritionistService) {
+    this.nutritionistForm = this.fb.group({
+      'username': ['',  Validators.required],
+      'password': ['',  Validators.required],
+      'speciallity': ['',  Validators.required],
+      'dni': ['',  Validators.required],
+      'phoneNumber': ['',  Validators.required]
+    });
   }
 
-  addNutritionist(nutritionist){}
+  ngOnInit() {
+
+  }
+
+  onSubmit(): void {
+    this.nutritionist = new Nutritionist(this.nutritionistForm.getRawValue());
+    this.nutritionistService.addNutritionist(this.nutritionist)
+      .subscribe(
+        recipe => this.router.navigate(['/nutritionists/']),
+        error => {
+          this.errorMessage = error.errors ? <any>error.errors[0].message : <any>error.message;
+        });
+  }
 }

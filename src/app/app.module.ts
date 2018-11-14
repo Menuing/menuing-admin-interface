@@ -16,6 +16,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RecipeService } from './recipe/recipe.service';
 import { LoginService } from './login/login.service';
 import { HttpClientModule } from '@angular/common/http';
+import { NutritionistService } from './nutritionist/nutritionist.service';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,7 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [RecipeService, LoginService],
+  providers: [RecipeService, LoginService, NutritionistService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
