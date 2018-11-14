@@ -12,6 +12,9 @@ import { ModifyRecipeComponent } from './recipe/modify-recipe/modify-recipe.comp
 import { AddNutritionistComponent } from './nutritionist/add-nutritionist/add-nutritionist.component';
 import { ListNutritionistComponent } from './nutritionist/list-nutritionist/list-nutritionist.component';
 import { DetailNutritionistComponent } from './nutritionist/detail-nutritionist/detail-nutritionist.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { RecipeService } from './recipe/recipe.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -28,9 +31,11 @@ import { DetailNutritionistComponent } from './nutritionist/detail-nutritionist/
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [],
+  providers: [RecipeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
