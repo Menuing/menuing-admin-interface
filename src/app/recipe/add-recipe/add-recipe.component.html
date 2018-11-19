@@ -2,19 +2,19 @@
   <form id="recipe-form" class="form-search-recipe" [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
     <label for="name" class="sr-only">Recipe Name</label>
     <input type="text" id="name" class="form-control" [formControl]="recipeForm.controls['name']" placeholder="Recipe name" required #recipe>
+    <br>
     <div class="input-group">
       <div class="input-group-prepend">
         <span class="input-group-text">Ingredients</span>
       </div>
-      <textarea class="form-control" id="ingredients" [formControl]="recipeForm.controls['ingredients']" aria-label="Ingredients"></textarea>
+      <div class = "list">
+        <mat-selection-list #ingredients>
+          <mat-list-option *ngFor="let ingredient of ingredientsList">
+            {{ingredient.name}}
+          </mat-list-option>
+        </mat-selection-list>
+      </div>
     </div>
-
-    <mat-selection-list #ingredients>
-      <mat-list-option *ngFor="let ingredient of ingredientsList">
-        {{ingredient.name}}
-      </mat-list-option>
-    </mat-selection-list>
-    
     <p>
       Options selected: {{ingredients.selectedOptions.selected.length}}
     </p>
