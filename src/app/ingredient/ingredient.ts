@@ -1,4 +1,4 @@
-export class Nutritionist{
+export class Ingredient{
 
     id;
 

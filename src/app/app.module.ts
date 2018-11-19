@@ -17,6 +17,7 @@ import { RecipeService } from './recipe/recipe.service';
 import { LoginService } from './login/login.service';
 import { HttpClientModule } from '@angular/common/http';
 import { NutritionistService } from './nutritionist/nutritionist.service';
+import { IngredientService } from './ingredient/ingredient.service';
 import { AddIngredientComponent } from './ingredient/add-ingredient/add-ingredient.component';
 import { ListIngredientComponent } from './ingredient/list-ingredient/list-ingredient.component';
 import { DetailIngredientComponent } from './ingredient/detail-ingredient/detail-ingredient.component';
@@ -44,7 +45,7 @@ import { DetailIngredientComponent } from './ingredient/detail-ingredient/detail
     HttpClientModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [RecipeService, LoginService, NutritionistService],
+  providers: [RecipeService, LoginService, NutritionistService, IngredientService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
