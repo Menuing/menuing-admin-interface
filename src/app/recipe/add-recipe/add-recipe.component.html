@@ -8,6 +8,17 @@
       </div>
       <textarea class="form-control" id="ingredients" [formControl]="recipeForm.controls['ingredients']" aria-label="Ingredients"></textarea>
     </div>
+
+    <mat-selection-list #ingredients>
+      <mat-list-option *ngFor="let ingredient of ingredientsList">
+        {{ingredient.name}}
+      </mat-list-option>
+    </mat-selection-list>
+    
+    <p>
+      Options selected: {{ingredients.selectedOptions.selected.length}}
+    </p>
+    
     <div class="input-group">
       <div class="input-group-prepend">
         <span class="input-group-text">Instructions</span>

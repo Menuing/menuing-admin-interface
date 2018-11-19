@@ -3,6 +3,8 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Recipe} from '../Recipe';
 import {Router} from '@angular/router';
 import {RecipeService} from '../recipe.service';
+import { IngredientService } from '../../ingredient/ingredient.service';
+import { Ingredient } from '../../ingredient/ingredient';
 
 @Component({
   selector: 'app-add-recipe',
@@ -17,10 +19,12 @@ export class AddRecipeComponent implements OnInit {
   public name: string;
   public instructions: string;
   public ingredients: string;
+  public ingredientsList: Ingredient[];
 
   constructor(private fb: FormBuilder,
               private router: Router,
-              private recipeService: RecipeService) {
+              private recipeService: RecipeService,
+              private ingredientService: IngredientService) {
     this.recipeForm = this.fb.group({
       'name': ['',  Validators.required],
       'instructions': ['',  Validators.required],
@@ -29,6 +33,12 @@ export class AddRecipeComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.ingredientService.getAllIngredients()
+    .subscribe(
+      (ingredients: Ingredient[]) => {
+        this.ingredientsList = ingredients;
+      },
+      error => this.errorMessage = <any>error.message);
 
   }
 

@@ -19,6 +19,16 @@ export class RecipeService {
     return this.http.get(`${environment.API}/api/resources/recipes/all`, httpOptions);
   }
 
+  getAllIngredients() {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json'
+      })
+    };
+
+    return this.http.get(`${environment.API}/api/resources/ingredients/all`, httpOptions);
+  }
+
   getRecipe(id: string) {
     const httpOptions = {
       headers: new HttpHeaders({
