@@ -5,7 +5,6 @@ import {Router} from '@angular/router';
 import {RecipeService} from '../recipe.service';
 import { IngredientService } from '../../ingredient/ingredient.service';
 import { Ingredient } from '../../ingredient/ingredient';
-import $ = require('jquery');
 
 @Component({
   selector: 'app-add-recipe',
@@ -65,14 +64,8 @@ export class AddRecipeComponent implements OnInit {
 
   onSelection(e, v){
     console.log(e.option._selected);
-    if(e.option._selected == true){
-      var tmp = []; 
-      this.current_selected.push(e.option.value.name);
-      $.each(this.current_selected, function(i, el){
-        if($.inArray(el, tmp) === -1) tmp.push(el);
-    });
-    this.current_selected = tmp;
+    if(e.option._selected == true && this.current_selected.indexOf(e.option.value.name)==-1){
+        this.current_selected.push(e.option.value.name);
     }
   }
-
 }
