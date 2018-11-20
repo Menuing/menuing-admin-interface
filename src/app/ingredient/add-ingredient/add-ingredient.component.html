@@ -2,6 +2,7 @@
   <form id="ingredient-form" class="form-search-ingredient" [formGroup]="ingredientForm" (ngSubmit)="onSubmit()">
     <label for="name" class="sr-only">Ingredient Name</label>
     <input type="text" id="name" class="form-control" [formControl]="ingredientForm.controls['name']" placeholder="Ingredient name" required #ingredient>
+    <br>
     <div class="input-group">
       <div class="input-group-prepend">
         <span class="input-group-text">Nutrients</span>
