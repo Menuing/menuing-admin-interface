@@ -20,6 +20,9 @@ import { LoginService } from './login/login.service';
 import { HttpClientModule } from '@angular/common/http';
 import { NutritionistService } from './nutritionist/nutritionist.service';
 import { Ingredient } from './ingredient/ingredient';
+import { AddIngredientComponent } from './ingredient/add-ingredient/add-ingredient.component';
+import { ListIngredientComponent } from './ingredient/list-ingredient/list-ingredient.component';
+import { DetailIngredientComponent } from './ingredient/detail-ingredient/detail-ingredient.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +34,10 @@ import { Ingredient } from './ingredient/ingredient';
     ModifyRecipeComponent,
     AddNutritionistComponent,
     ListNutritionistComponent,
-    DetailNutritionistComponent
+    DetailNutritionistComponent,
+    AddIngredientComponent,
+    ListIngredientComponent,
+    DetailIngredientComponent
   ],
   imports: [
     BrowserModule,

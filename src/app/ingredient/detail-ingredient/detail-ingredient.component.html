@@ -1,0 +1,17 @@
+<p></p>
+<div class="card col-md-10 offset-1">
+    <div class="card-body">
+      <h5 class="card-title">{{ingredient.name}}:</h5>
+      
+      <h5 class="card-subtitle">Id:</h5>
+      <p class="card-text">{{ingredient.id}}</p>
+      
+      <h5 class="card-subtitle">Nutrients:</h5>
+      <p class="card-text">{{ingredient.nutrients}}</p>
+  
+    </div>
+    <button type="button" class="btn btn-info col-md-2">Modify Ingredient</button>
+    <p></p>
+  <button type="button" class="btn btn-danger col-md-2"  (click)="onDelete()">Delete ingredient</button>
+  <p></p>
+</div>
