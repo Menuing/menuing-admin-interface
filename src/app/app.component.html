@@ -1,2 +1,41 @@
-<!--The content below is only a placeholder and can be replaced.-->
+<nav class="navbar navbar-expand-lg navbar-light navbar-menuing">
+    <a class="navbar-brand" href="">
+        <img src="../../../assets/img/app-icon.png" width="30" height="30" class="d-inline-block align-top" alt="">
+        Menuing</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Nutritionists
+                </a>
+                <div class="dropdown-menu  navbar-menuing" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" routerLink="/nutritionist-add">Add nutritionists</a>
+                    <a class="dropdown-item" routerLink="/nutritionists">View nutritionists</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Ingredients
+                </a>
+                <div class="dropdown-menu navbar-menuing" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" routerLink="/ingredient-add">Add ingredients</a>
+                    <a class="dropdown-item" routerLink="/ingredients">View ingredients</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Recipes
+                </a>
+                <div class="dropdown-menu navbar-menuing" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" routerLink="/recipe-add">Add recipes</a>
+                    <a class="dropdown-item" routerLink="/recipes">View recipes</a>
+                </div>
+            </li>
+        </div>
+    </div>
+</nav>
+<p></p>
 <router-outlet></router-outlet>
