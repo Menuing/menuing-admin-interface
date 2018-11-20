@@ -20,6 +20,7 @@ export class AddRecipeComponent implements OnInit {
   public instructions: string;
   public ingredients: string;
   public ingredientsList: Ingredient[];
+  public current_selected: string;
 
   constructor(private fb: FormBuilder,
               private router: Router,
@@ -44,12 +45,18 @@ export class AddRecipeComponent implements OnInit {
 
   onSubmit(): void {
     this.recipe = new Recipe(this.recipeForm.getRawValue());
+    this.recipe.ingredients = this.current_selected;
+    console.log(this.current_selected);
     this.recipeService.addRecipe(this.recipe)
       .subscribe(
         recipe => this.router.navigate(['/recipes/']),
         error => {
           this.errorMessage = error.errors ? <any>error.errors[0].message : <any>error.message;
         });
+  }
+
+  onSelection(e, v){
+   this.current_selected = e.option.value;
   }
 
 }

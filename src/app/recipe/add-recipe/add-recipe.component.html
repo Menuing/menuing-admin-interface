@@ -8,7 +8,7 @@
         <span class="input-group-text">Ingredients</span>
       </div>
       <div class = "list">
-        <mat-selection-list #ingredients>
+        <mat-selection-list #ingredients (selectionChange)="onSelection($event, ingredients.selectedOptions)">
           <mat-list-option *ngFor="let ingredient of ingredientsList">
             {{ingredient.name}}
           </mat-list-option>
@@ -29,3 +29,5 @@
     <button class="btn btn-lg btn-success" type="submit">Create recipe</button>
   </form>
 </div>
+<!--//https://stackoverflow.com/questions/47349528/binding-an-angular-material-selection-list
+//https://stackoverflow.com/questions/50636365/current-selected-value-in-angular6-material-mat-selection-list/50636719-->
