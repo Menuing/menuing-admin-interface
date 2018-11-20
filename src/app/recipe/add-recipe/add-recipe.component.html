@@ -9,7 +9,7 @@
       </div>
       <div class = "list">
         <mat-selection-list #ingredients (selectionChange)="onSelection($event, ingredients.selectedOptions)">
-          <mat-list-option *ngFor="let ingredient of ingredientsList">
+          <mat-list-option *ngFor="let ingredient of ingredientsList" [value]='ingredient'>
             {{ingredient.name}}
           </mat-list-option>
         </mat-selection-list>

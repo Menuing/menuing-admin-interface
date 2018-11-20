@@ -5,6 +5,7 @@ import {Router} from '@angular/router';
 import {RecipeService} from '../recipe.service';
 import { IngredientService } from '../../ingredient/ingredient.service';
 import { Ingredient } from '../../ingredient/ingredient';
+import $ = require('jquery');
 
 @Component({
   selector: 'app-add-recipe',
@@ -20,7 +21,7 @@ export class AddRecipeComponent implements OnInit {
   public instructions: string;
   public ingredients: string;
   public ingredientsList: Ingredient[];
-  public current_selected: string;
+  public current_selected: string[];
 
   constructor(private fb: FormBuilder,
               private router: Router,
@@ -34,18 +35,25 @@ export class AddRecipeComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.current_selected = [];
     this.ingredientService.getAllIngredients()
     .subscribe(
       (ingredients: Ingredient[]) => {
         this.ingredientsList = ingredients;
       },
       error => this.errorMessage = <any>error.message);
-
+      
   }
 
   onSubmit(): void {
     this.recipe = new Recipe(this.recipeForm.getRawValue());
-    this.recipe.ingredients = this.current_selected;
+    this.recipe.ingredients = "";
+    for (var i = 0; i<this.current_selected.length;i++){
+      if(i>0){
+        this.recipe.ingredients += ", "  
+      }
+      this.recipe.ingredients += this.current_selected[i];
+    }
     console.log(this.current_selected);
     this.recipeService.addRecipe(this.recipe)
       .subscribe(
@@ -56,7 +64,15 @@ export class AddRecipeComponent implements OnInit {
   }
 
   onSelection(e, v){
-   this.current_selected = e.option.value;
+    console.log(e.option._selected);
+    if(e.option._selected == true){
+      var tmp = []; 
+      this.current_selected.push(e.option.value.name);
+      $.each(this.current_selected, function(i, el){
+        if($.inArray(el, tmp) === -1) tmp.push(el);
+    });
+    this.current_selected = tmp;
+    }
   }
 
 }
