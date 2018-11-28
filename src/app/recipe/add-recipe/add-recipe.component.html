@@ -2,19 +2,39 @@
   <form id="recipe-form" class="form-search-recipe" [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
     <label for="name" class="sr-only">Recipe Name</label>
     <input type="text" id="name" class="form-control" [formControl]="recipeForm.controls['name']" placeholder="Recipe name" required #recipe>
-    <div class="input-group">
-      <div class="input-group-prepend">
-        <span class="input-group-text">Ingredients</span>
-      </div>
-      <textarea class="form-control" id="ingredients" [formControl]="recipeForm.controls['ingredients']" aria-label="Ingredients"></textarea>
-    </div>
-    <div class="input-group">
-      <div class="input-group-prepend">
+    <div class="row">
+      <div class="col-sm-4">
         <span class="input-group-text">Instructions</span>
       </div>
-      <textarea class="form-control" id="instructions" [formControl]="recipeForm.controls['instructions']" aria-label="Instructions"></textarea>
+      <div class="form col-sm-8">
+        <textarea class="form-control" id="instructions" [formControl]="recipeForm.controls['instructions']" aria-label="Instructions"></textarea>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-4">
+        <span class="input-group-text input-group-lg">Ingredients proportions</span>
+      </div>
+      <div class="form col-sm-8">
+        <textarea class="form-control" id="instructions" [formControl]="recipeForm.controls['instructions']" aria-label="Instructions"></textarea>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-4">
+        <span class="input-group-text">Tags</span>
+      </div>     
+      <div class="form col-sm-8">
+        <ng-multiselect-dropdown class="" [formControl]="recipeForm.controls['ingredients']"
+            [placeholder]="'custom placeholder'"
+            [data]="dropdownIngredients"
+            [(ngModel)]="selectedIngredients"
+            [settings]="dropdownSettings"
+            (onSelect)="onItemSelect($event)"
+            (onSelectAll)="onSelectAll($event)"
+        ></ng-multiselect-dropdown>
+      </div>
     </div>
     <p></p>
     <button class="btn btn-lg btn-success" type="submit">Create recipe</button>
   </form>
+
 </div>

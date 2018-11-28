@@ -13,6 +13,7 @@ import { AddNutritionistComponent } from './nutritionist/add-nutritionist/add-nu
 import { ListNutritionistComponent } from './nutritionist/list-nutritionist/list-nutritionist.component';
 import { DetailNutritionistComponent } from './nutritionist/detail-nutritionist/detail-nutritionist.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { RecipeService } from './recipe/recipe.service';
 import { LoginService } from './login/login.service';
 import { HttpClientModule } from '@angular/common/http';
@@ -21,6 +22,8 @@ import { IngredientService } from './ingredient/ingredient.service';
 import { AddIngredientComponent } from './ingredient/add-ingredient/add-ingredient.component';
 import { ListIngredientComponent } from './ingredient/list-ingredient/list-ingredient.component';
 import { DetailIngredientComponent } from './ingredient/detail-ingredient/detail-ingredient.component';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -40,10 +43,12 @@ import { DetailIngredientComponent } from './ingredient/detail-ingredient/detail
   imports: [
     BrowserModule,
     AppRoutingModule,
-
+    CommonModule,
+    FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    NgMultiSelectDropDownModule.forRoot()
   ],
   providers: [RecipeService, LoginService, NutritionistService, IngredientService],
   bootstrap: [AppComponent]
