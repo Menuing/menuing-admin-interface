@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {RecipeService} from '../recipe.service';
 import {Recipe} from '../recipe';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-recipe-check',
@@ -13,7 +14,13 @@ export class RecipeCheckComponent implements OnInit {
   public totalRecipes = 0;
   public errorMessage = '';
 
-  constructor(private recipeService: RecipeService) { }
+  public searchRecipeForm: FormGroup;
+
+  constructor(private fb: FormBuilder, private recipeService: RecipeService) { 
+    this.searchRecipeForm = this.fb.group({
+      'name': ['',  Validators.required]
+    });
+  }
 
   ngOnInit() {
     this.recipeService.getAllRecipes()
@@ -25,8 +32,17 @@ export class RecipeCheckComponent implements OnInit {
         error => this.errorMessage = <any>error.message);
   }
 
-  search(recipe) {
-    
+  search() {
+    var name = new Recipe(this.searchRecipeForm.getRawValue()).name;
+    console.log(name);
+    this.recipeService.getRecipeByName(name)
+      .subscribe(
+        (recipes: Recipe[]) => {
+          this.recipes = recipes;
+          this.totalRecipes = recipes.length;
+          console.log(recipes);
+        },
+        error => this.errorMessage = <any>error.message);
   }
 
 }
