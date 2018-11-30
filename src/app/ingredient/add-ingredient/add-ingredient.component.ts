@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {Ingredient} from '../Ingredient';
+import {Ingredient} from '../ingredient';
 import {Router} from '@angular/router';
 import {IngredientService} from '../ingredient.service';
 
