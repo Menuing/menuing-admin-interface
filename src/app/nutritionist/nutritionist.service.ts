@@ -28,6 +28,16 @@ export class NutritionistService{
       
       return this.http.get(`${environment.API}/api/resources/nutritionists/id/${Number(id)}`, httpOptions);
     }
+
+    getRecipeByName(name: string) {
+      const httpOptions = {
+        headers: new HttpHeaders({
+          'Content-Type':  'application/json'
+        })
+      };
+      return this.http.get(`${environment.API}/api/resources/nutritionists/?nameLike=${name}`, httpOptions);
+      
+    }
   
     addNutritionist(nutritionist: Nutritionist) {
       const httpOptions = {
