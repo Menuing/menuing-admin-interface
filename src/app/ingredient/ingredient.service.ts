@@ -28,6 +28,16 @@ export class IngredientService{
       
       return this.http.get(`${environment.API}/api/resources/ingredients/id/${Number(id)}`, httpOptions);
     }
+
+    getIngredientsByName(name: string) {
+      const httpOptions = {
+        headers: new HttpHeaders({
+          'Content-Type':  'application/json'
+        })
+      };
+      return this.http.get(`${environment.API}/api/resources/ingredients/?nameLike=${name}`, httpOptions);
+      
+    }
   
     addIngredient(ingredient: Ingredient) {
       const httpOptions = {

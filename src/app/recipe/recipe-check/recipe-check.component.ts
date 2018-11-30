@@ -16,7 +16,8 @@ export class RecipeCheckComponent implements OnInit {
 
   public searchRecipeForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private recipeService: RecipeService) { 
+  constructor(private fb: FormBuilder, 
+    private recipeService: RecipeService) { 
     this.searchRecipeForm = this.fb.group({
       'name': ['',  Validators.required]
     });
@@ -34,13 +35,11 @@ export class RecipeCheckComponent implements OnInit {
 
   search() {
     var name = new Recipe(this.searchRecipeForm.getRawValue()).name;
-    console.log(name);
     this.recipeService.getRecipeByName(name)
       .subscribe(
         (recipes: Recipe[]) => {
           this.recipes = recipes;
           this.totalRecipes = recipes.length;
-          console.log(recipes);
         },
         error => this.errorMessage = <any>error.message);
   }

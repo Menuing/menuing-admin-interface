@@ -35,7 +35,6 @@ export class RecipeService {
         'Content-Type':  'application/json'
       })
     };
-    console.log(`${environment.API}/api/resources/recipes/?nameLike=${name}`)
     return this.http.get(`${environment.API}/api/resources/recipes/?nameLike=${name}`, httpOptions);
     
   }
