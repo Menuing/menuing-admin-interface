@@ -2,9 +2,9 @@
   <div class="row">
     <h3 class="col-md-12">Recipes</h3>
     <div class="col-md-12">
-        <form class="form-search-recipe" [formGroup]="searchRecipeForm" (submit)="search(recipe)">
+        <form class="form-search-recipe" [formGroup]="searchRecipeForm" (ngSubmit)="search()">
             <label for="recipe" class="sr-only">Recipe name</label>
-            <input type="text" id="recipe" class="form-control" placeholder="Recipe name" required #recipe>
+            <input type="text" id="recipe" class="form-control" placeholder="Recipe name" required #recipe [formControl]="searchRecipeForm.controls['name']">
             <p></p>
             <button class="btn btn-lg btn-success" type="submit">Filter</button>
         </form>

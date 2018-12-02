@@ -2,9 +2,9 @@
     <div class="row">
       <h3 class="col-md-12">Ingredient</h3>
       <div class="col-md-12">
-          <form class="form-search-ingredient" [formGroup]="searchIngredientForm" (submit)="search(ingredient)">
+          <form class="form-search-ingredient" [formGroup]="searchIngredientForm" (submit)="search()">
               <label for="ingredient" class="sr-only">Ingredient name</label>
-              <input type="text" id="ingredient" class="form-control" placeholder="Ingredient name" required #ingredient>
+              <input type="text" id="ingredient" class="form-control" placeholder="Ingredient name" required #ingredient [formControl]="searchIngredientForm.controls['name']">
               <p></p>
               <button class="btn btn-lg btn-success" type="submit">Filter</button>
           </form>

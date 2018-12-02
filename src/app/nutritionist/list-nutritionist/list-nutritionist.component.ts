@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {NutritionistService} from '../nutritionist.service';
 import {Nutritionist} from '../nutritionist';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-list-nutritionist',
@@ -13,7 +14,13 @@ export class ListNutritionistComponent implements OnInit {
   public totalNutritionists = 0;
   public errorMessage = '';
 
-  constructor(private nutritionistService: NutritionistService) { }
+  public searchNutritionistForm:FormGroup;
+
+  constructor(private fb: FormBuilder, 
+    private nutritionistService: NutritionistService) {
+    this.searchNutritionistForm = this.fb.group({
+      'name': ['',  Validators.required]
+    });}
 
   ngOnInit() {
     this.nutritionistService.getAllNutritionists()
@@ -25,5 +32,14 @@ export class ListNutritionistComponent implements OnInit {
         error => this.errorMessage = <any>error.message);
   }
 
-  search(nutritionist){}
+  search() {
+    var name = new Nutritionist(this.searchNutritionistForm.getRawValue()).username;
+    this.nutritionistService.getRecipeByName(name)
+      .subscribe(
+        (nutritionists: Nutritionist[]) => {
+          this.nutritionists = nutritionists;
+          this.totalNutritionists = nutritionists.length;
+        },
+        error => this.errorMessage = <any>error.message);
+  }
 }

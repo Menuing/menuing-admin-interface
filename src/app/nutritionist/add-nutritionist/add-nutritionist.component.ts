@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {Nutritionist} from '../Nutritionist';
+import {Nutritionist} from '../nutritionist';
 import {Router} from '@angular/router';
 import {NutritionistService} from '../nutritionist.service';
 
