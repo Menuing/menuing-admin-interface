@@ -31,7 +31,13 @@ export class AddRecipeComponent implements OnInit {
     this.recipeForm = this.fb.group({
       'name': ['',  Validators.required],
       'instructions': ['',  Validators.required],
-      'ingredients': ['',  Validators.required]
+      'proportions': ['',  Validators.required],
+      'calories': ['',  Validators.required],
+      'fat': ['',  Validators.required],
+      'protein': ['',  Validators.required],
+      'sodium': ['',  Validators.required],
+      'recipeIngredient': ['',  Validators.required],
+      'urlPhoto': ['',  Validators.required]
     });
   }
 
@@ -61,9 +67,11 @@ export class AddRecipeComponent implements OnInit {
   }
 
   onSubmit(): void {
+    this.recipe = new Recipe();
     this.recipe = new Recipe(this.recipeForm.getRawValue());
-    this.recipe.calories
-    console.log( this.recipe.calories);
+    this.recipe.recipeIngredients=this.selectedIngredients;
+    console.log(this.selectedIngredients);
+    console.log(this.recipe);
     this.recipeService.addRecipe(this.recipe)
       .subscribe(
         recipe => this.router.navigate(['/recipes/']),
@@ -73,10 +81,16 @@ export class AddRecipeComponent implements OnInit {
   }
 
   onItemDeSelect(item: any){
+    var index = this.selectedIngredients.indexOf(item,0);
+    console.log(index);
+    if(index>-1){
+      this.selectedIngredients.splice(index, 1);
+    }
     console.log(this.selectedIngredients);
   }
 
   onItemSelect(item: any) {
+    this.selectedIngredients.push(item)
     console.log(this.selectedIngredients);
   }
   onSelectAll(items: any) {
