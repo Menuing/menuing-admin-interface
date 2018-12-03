@@ -62,6 +62,8 @@ export class AddRecipeComponent implements OnInit {
 
   onSubmit(): void {
     this.recipe = new Recipe(this.recipeForm.getRawValue());
+    this.recipe.calories
+    console.log( this.recipe.calories);
     this.recipeService.addRecipe(this.recipe)
       .subscribe(
         recipe => this.router.navigate(['/recipes/']),

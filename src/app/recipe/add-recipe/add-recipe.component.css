@@ -2,3 +2,19 @@ input.form-control{
     background-color: transparent;
     border-color: #adadad;
 }
+
+.btn-success:hover {
+    color: #fff;
+    background-color: #da6319;
+    border-color: #da6319;
+}
+
+.btn-success.focus {
+    box-shadow: 0 0 0 0.2rem rgba(240, 188, 92, 0.877);
+}
+
+.btn-success {
+    color: #fff;
+    background-color: #ff9c60;
+    border-color: #ff9c60;
+}
