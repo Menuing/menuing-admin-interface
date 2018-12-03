@@ -82,11 +82,12 @@ export class AddRecipeComponent implements OnInit {
 
   onItemDeSelect(item: any){
     var index = this.selectedIngredients.indexOf(item,0);
-    console.log(index);
-    if(index>-1){
-      this.selectedIngredients.splice(index, 1);
-    }
+    var id = item.id;
+    var index = this.selectedIngredients.findIndex(function(listItem, i){
+      return listItem.id === id;
+    });
     console.log(this.selectedIngredients);
+    this.selectedIngredients.splice(index, 1);
   }
 
   onItemSelect(item: any) {
