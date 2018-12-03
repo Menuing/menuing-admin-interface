@@ -7,7 +7,17 @@ export class Recipe{
 
     instructions:string;
 
-    ingredients:string;
+    proportions:string;
+
+    calories:number;
+
+    fat:number;
+
+    protein:number;
+
+    sodium:number;
+
+    recipeIngredients:number[];
 
     urlPhoto:string;
 

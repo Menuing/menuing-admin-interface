@@ -1,3 +1,11 @@
 .navbar-menuing{
     background-color: #ff9c60;
 }
+
+.form-group {
+    opacity: 0%
+}
+
+input.form-control{
+    background-color: #ff9c60;
+}

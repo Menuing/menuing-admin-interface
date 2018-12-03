@@ -70,8 +70,12 @@ export class AddRecipeComponent implements OnInit {
         });
   }
 
+  onItemDeSelect(item: any){
+    console.log(this.selectedIngredients);
+  }
+
   onItemSelect(item: any) {
-    console.log(item);
+    console.log(this.selectedIngredients);
   }
   onSelectAll(items: any) {
     console.log(items);

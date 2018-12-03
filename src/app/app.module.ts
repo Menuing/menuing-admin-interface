@@ -45,6 +45,7 @@ import { CommonModule } from '@angular/common';
     AppRoutingModule,
     CommonModule,
     FormsModule,
+    ReactiveFormsModule.withConfig({warnOnNgModelWithFormControl: 'never'}),
     ReactiveFormsModule,
     HttpClientModule,
     RouterModule.forRoot(routes),
