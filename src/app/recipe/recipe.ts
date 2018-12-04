@@ -17,8 +17,6 @@ export class Recipe{
 
     sodium:number;
 
-    recipeIngredients:number[];
-
     urlPhoto:string;
 
     averagePuntuation;

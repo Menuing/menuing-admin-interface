@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {environment} from '../../environments/environment';
 import {Recipe} from './recipe';
+import { Ingredient } from '../ingredient/ingredient';
 
 @Injectable()
 export class RecipeService {
@@ -46,6 +47,18 @@ export class RecipeService {
       })
     };
     return this.http.post<Recipe>(`${environment.API}/api/resources/recipes`, recipe, httpOptions);
+  }
+
+  addRecipeIngredient(selectedItem:Ingredient, recipe:Recipe){
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json'
+      })
+    };
+    var json: JSON;
+    var body:any ={"key":{"ingredientId":selectedItem.id, "recipeId":recipe.id}}
+    json = <JSON>body;
+    return this.http.post<Recipe>(`${environment.API}/api/resources/recipesIngredients`, json, httpOptions);
   }
 
   /*updateRecipe(recipe: Recipe): Observable<Recipe> {

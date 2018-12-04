@@ -36,7 +36,6 @@ export class AddRecipeComponent implements OnInit {
       'fat': ['',  Validators.required],
       'protein': ['',  Validators.required],
       'sodium': ['',  Validators.required],
-      'recipeIngredient': ['',  Validators.required],
       'urlPhoto': ['',  Validators.required]
     });
   }
@@ -68,13 +67,18 @@ export class AddRecipeComponent implements OnInit {
 
   onSubmit(): void {
     this.recipe = new Recipe();
-    this.recipe = new Recipe(this.recipeForm.getRawValue());
-    this.recipe.recipeIngredients=this.selectedIngredients;
-    console.log(this.selectedIngredients);
+    this.recipe = new Recipe(this.recipeForm.getRawValue());¡
     console.log(this.recipe);
     this.recipeService.addRecipe(this.recipe)
       .subscribe(
-        recipe => this.router.navigate(['/recipes/']),
+        recipe => {
+          this.recipe.id = recipe
+          this.router.navigate(['/recipes/'])
+          for(var i=0;i<this.selectedIngredients.length;i++){
+            this.recipeService.addRecipeIngredient(this.selectedIngredients[i], this.recipe)
+            .subscribe()
+          }
+        },
         error => {
           this.errorMessage = error.errors ? <any>error.errors[0].message : <any>error.message;
         });
@@ -86,14 +90,13 @@ export class AddRecipeComponent implements OnInit {
     var index = this.selectedIngredients.findIndex(function(listItem, i){
       return listItem.id === id;
     });
-    console.log(this.selectedIngredients);
     this.selectedIngredients.splice(index, 1);
   }
 
   onItemSelect(item: any) {
-    this.selectedIngredients.push(item)
-    console.log(this.selectedIngredients);
+    this.selectedIngredients.push(item);
   }
+
   onSelectAll(items: any) {
     console.log(items);
   }
