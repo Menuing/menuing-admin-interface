@@ -1,20 +1,25 @@
 input.form-control{
-    background-color: transparent;
-    border-color: #adadad;
+    background-color: transparent !important;
+    border-color: #adadad !important;
 }
 
-.btn-success:hover {
+.btn:hover {
     color: #fff;
-    background-color: #da6319;
-    border-color: #da6319;
+    background-color: #da6319 !important;
+    border-color: #da6319 !important;
 }
 
-.btn-success.focus {
-    box-shadow: 0 0 0 0.2rem rgba(240, 188, 92, 0.877);
+.btn.focus {
+    box-shadow: 0 0 0 0.2rem rgba(240, 188, 92, 0.877) !important;
 }
 
-.btn-success {
+.btn {
     color: #fff;
-    background-color: #ff9c60;
-    border-color: #ff9c60;
+    background-color: #ff9c60 !important;
+    border-color: #ff9c60 !important;
 }
+
+.multiselect-item-checkbox:checked{
+    background-color: #ff9c60 !important;
+}
+
