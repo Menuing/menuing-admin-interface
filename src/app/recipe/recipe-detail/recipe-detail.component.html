@@ -1,27 +1,44 @@
 <p></p>
 <div class="col-md-10 offset-1">
-<div class="card">
-  <h5 class="card-header">{{recipe.name}}</h5>  
-  <div class="card-body"> 
-      
+  <div class="col-md-12">
+    <div class="box p-3 mb-5 rounded"> 
+      <h5 class="card-subtitle">Name:</h5>
+      <p class="card-text">{{recipe.name}}</p>
       <h5 class="card-subtitle">Id:</h5>
       <p class="card-title">{{recipe.id}}</p>
-      
-      <h5 class="card-subtitle">Puntuació:</h5>
-      <p class="card-text">{{recipe.averagePuntuation}}</p>
-  
-      <h5 class="card-subtitle">Ingredients:</h5>
-      <p class="card-text">{{recipe.ingredients}}</p>
 
-      <h5 class="card-subtitle">Photo url:</h5>
-      <p class="card-text">{{recipe.urlPhoto}}</p>
-      
-      <h5 class="card-subtitle">Instruccions:</h5>
+      <h5 class="card-subtitle">Instructions:</h5>
       <p class="card-text">{{recipe.instructions}}</p>
+
+      <h5 class="card-subtitle">Proportions:</h5>
+      <p class="card-text">{{recipe.proportions}}</p>
+      
+      <h5 class="card-subtitle">Calories:</h5>
+      <p class="card-text">{{recipe.calories}}</p>
+
+      <h5 class="card-subtitle">Fat:</h5>
+      <p class="card-text">{{recipe.fat}}</p>
+      
+      <h5 class="card-subtitle">Protein:</h5>
+      <p class="card-text">{{recipe.protein}}</p>
+      
+      <h5 class="card-subtitle">Sodium:</h5>
+      <p class="card-text">{{recipe.sodium}}</p>
+      
+      <h5 class="card-subtitle">URL photo:</h5>
+      <p class="card-text">{{recipe.urlphoto}}</p>
+
+      <h5 class="card-subtitle">Tags:</h5>
+      <div *ngFor="let recipeIngredient of recipesIngredients">
+        <p class="card-text">{{recipeIngredient.ingredient.name}}</p>
+      </div>
+      <p></p>
+      <h5 class="card-subtitle">Avarage punctuation:</h5>
+      <p class="card-text">{{recipe.averagePuntuation}}</p>
     </div>
-    <button type="button" class="btn btn-info col-md-2">Modify recipe</button>
+    <button type="button" class="btn btn-secondary col-md-2">Modify recipe</button>
     <p></p>
-  <button type="button" class="btn btn-danger col-md-2"  (click)="onDelete()">Delete recipe</button>
-  <p></p>
-</div>
+    <button type="button" class="btn btn-danger col-md-2"  (click)="onDelete()">Delete recipe</button>
+    <p></p>
+  </div>
 </div>
