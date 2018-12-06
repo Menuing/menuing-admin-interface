@@ -6,23 +6,22 @@
               <label for="ingredient" class="sr-only">Ingredient name</label>
               <input type="text" id="ingredient" class="form-control" placeholder="Ingredient name" required #ingredient [formControl]="searchIngredientForm.controls['name']">
               <p></p>
-              <button class="btn btn-lg btn-success" type="submit">Filter</button>
+              <button class="btn btn-lg btn-secondary" type="submit">Filter</button>
           </form>
       </div>
     </div>
-  
-  <div class="row p-3">
-    <div class="card col-md-12" *ngFor="let ingredient of ingredients">
-      <div class="card-body" routerLink="/ingredient/{{ingredient.id}}">
-        <h5 class="card-title">Name:<a routerLink="/ingredient/{{ingredient.id}}">{{ingredient.name}}</a></h5>
+  <p></p>
+  <div class="row">
+    <div class="col-md-12" *ngFor="let ingredient of ingredients">
+      <div class="box p-3 mb-5 rounded" routerLink="/ingredient/{{ingredient.id}}">
+        <h5 class="card-subtitle">Name:</h5>
+        <p class="card-text">{{ingredient.name}}</p>
         
         <h5 class="card-subtitle">Id:</h5>
         <p class="card-text">{{ingredient.id}}</p>
         
-        <h5 class="card-subtitle">Nutrients:</h5>
-        <p class="card-text">{{ingredient.nutrients}}</p>
-        
-        <p class="font-italic">click to see details</p>
+        <p class="font-italic click">click to see details</p>
       </div>
+      <p></p>
     </div>
   </div>
