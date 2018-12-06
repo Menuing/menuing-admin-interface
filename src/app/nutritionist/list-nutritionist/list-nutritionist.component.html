@@ -6,36 +6,25 @@
             <label for="nutritionist" class="sr-only">Nutritionist name</label>
             <input type="text" id="nutritionist" class="form-control" placeholder="Nutritionist name" required #nutritionist [formControl]="searchNutritionistForm.controls['name']" >
             <p></p>
-            <button class="btn btn-lg btn-success" type="submit">Filter</button>
+            <button class="btn btn-lg btn-secondary" type="submit">Filter</button>
         </form>
     </div>
   </div>
 
-
-<div class="row p-3">
-  <div class="card col-md-12" *ngFor="let nutritionist of nutritionists">
-    <div class="card-body" routerLink="/nutritionist/{{nutritionist.id}}">
-      <h5 class="card-title">Username:<a routerLink="/nutritionist/{{nutritionist.id}}">{{nutritionist.username}}</a></h5>
+<p></p>
+<div class="row">
+  <div class="col-md-12" *ngFor="let nutritionist of nutritionists">
+    <div class="box p-3 mb-5 rounded" routerLink="/nutritionist/{{nutritionist.id}}">
+      <h5 class="card-subtitle">Username:</h5>
+      <p class="card-text">{{nutritionist.username}}</p>
       
       <h5 class="card-subtitle">Id:</h5>
       <p class="card-text">{{nutritionist.id}}</p>
-      
-      <h5 class="card-subtitle">Premium:</h5>
-      <p class="card-text">{{nutritionist.isPremium}}</p>
-
-      <h5 class="card-subtitle">Speciality:</h5>
-      <p class="card-text">{{nutritionist.speciallity}}</p>
-      
-      <h5 class="card-subtitle">DNI:</h5>
-      <p class="card-text">{{nutritionist.dni}}</p>
-
-      <h5 class="card-subtitle">Phone number:</h5>
-      <p class="card-text">{{nutritionist.phoneNumber}}</p>
-
+    
       <h5 class="card-subtitle">Average puntuation:</h5>
       <p class="card-text">{{nutritionist.averagePuntuation}}</p>
 
-      <p class="font-italic">click to see details</p>
+      <p class="font-italic click">click to see details</p>
     </div>
   </div>
 </div>
