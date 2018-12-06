@@ -6,7 +6,7 @@
             <label for="recipe" class="sr-only">Recipe name</label>
             <input type="text" id="recipe" class="form-control" placeholder="Recipe name" required #recipe [formControl]="searchRecipeForm.controls['name']">
             <p></p>
-            <button class="btn btn-lg btn-success" type="submit">Filter</button>
+            <button class="btn btn-lg btn-secondary" type="submit">Filter</button>
         </form>
     </div>
   </div>
@@ -21,7 +21,7 @@
       <h5 class="card-subtitle">Id:</h5>
       <p class="card-text">{{recipe.id}}</p>
 
-      <h5 class="card-subtitle">Puntuació:</h5>
+      <h5 class="card-subtitle">Puctuation:</h5>
       <p class="card-text">{{recipe.averagePuntuation}}</p>
 
 
