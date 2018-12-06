@@ -67,7 +67,7 @@ export class AddRecipeComponent implements OnInit {
 
   onSubmit(): void {
     this.recipe = new Recipe();
-    this.recipe = new Recipe(this.recipeForm.getRawValue());¡
+    this.recipe = new Recipe(this.recipeForm.getRawValue());
     console.log(this.recipe);
     this.recipeService.addRecipe(this.recipe)
       .subscribe(
