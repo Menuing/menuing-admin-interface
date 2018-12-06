@@ -15,7 +15,7 @@ export class IngredientService{
           'Content-Type':  'application/json'
         })
       };
-  
+      console.log(`${environment.API}/api/resources/ingredients/all`)
       return this.http.get(`${environment.API}/api/resources/ingredients/all`, httpOptions);
     }
   

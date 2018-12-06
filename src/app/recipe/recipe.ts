@@ -1,4 +1,4 @@
-    
+
 export class Recipe{
  
     id;
@@ -7,11 +7,19 @@ export class Recipe{
 
     instructions:string;
 
-    ingredients:string;
+    proportions:string;
+
+    calories:number;
+
+    fat:number;
+
+    protein:number;
+
+    sodium:number;
 
     urlPhoto:string;
 
-    averagePuntuation;
+    averagePunctuation:number;
 
     constructor(values: Object = {}) {
         Object.assign(this, values);

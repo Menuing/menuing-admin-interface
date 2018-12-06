@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RecipeService } from '../recipe.service';
 import { Recipe } from '../recipe';
+import { RecipesIngredients } from '../recipesIngredients';
 
 @Component({
   selector: 'app-recipe-detail',
@@ -11,6 +12,7 @@ import { Recipe } from '../recipe';
 export class RecipeDetailComponent implements OnInit {
 
   recipe :Recipe;
+  recipesIngredients:RecipesIngredients[];
   errorMessage = '';
 
   constructor(private route: ActivatedRoute, private router: Router, private recipeService: RecipeService) { }
@@ -21,8 +23,15 @@ export class RecipeDetailComponent implements OnInit {
       .subscribe(
         (recipe: Recipe) => {
           this.recipe = recipe;
+          this.recipeService.getRecipeIngredientByRecipe(this.recipe.id)
+          .subscribe(
+            (recipesIngredients: RecipesIngredients[]) => {
+              this.recipesIngredients = recipesIngredients;
+            },
+            error => this.errorMessage = <any>error.message);
         },
         error => this.errorMessage = <any>error.message);
+    
   }
 
   onDelete(){

@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {environment} from '../../environments/environment';
 import {Recipe} from './recipe';
+import { Ingredient } from '../ingredient/ingredient';
 
 @Injectable()
 export class RecipeService {
@@ -39,6 +40,15 @@ export class RecipeService {
     
   }
 
+  getRecipeIngredientByRecipe(id: number){
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json'
+      })
+    };
+    return this.http.get(`${environment.API}/api/resources/recipesIngredients/?recipeId=${id}`, httpOptions);
+  }
+
   addRecipe(recipe: Recipe) {
     const httpOptions = {
       headers: new HttpHeaders({
@@ -48,16 +58,18 @@ export class RecipeService {
     return this.http.post<Recipe>(`${environment.API}/api/resources/recipes`, recipe, httpOptions);
   }
 
-  /*updateRecipe(recipe: Recipe): Observable<Recipe> {
-    const body = JSON.stringify(recipe);
-    const headers = new Headers({'Content-Type': 'application/json'});
-    const options = new RequestOptions({headers: headers});
+  addRecipeIngredient(selectedItem:Ingredient, recipe:Recipe){
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json'
+      })
+    };
+    var json: JSON;
+    var body:any ={"key":{"ingredientId":selectedItem.id, "recipeId":recipe.id}}
+    json = <JSON>body;
+    return this.http.post<Recipe>(`${environment.API}/api/resources/recipesIngredients`, json, httpOptions);
+  }
 
-    return this.http.put(
-      `${environment.API}/courts/${court.id}`, body, options)
-      .map((res: Response) => new Court(res.json()))
-      .catch((error: any) => Observable.throw(error.json()));
-  }*/
 
   deleteRecipe(id: Number) {
     const httpOptions = {

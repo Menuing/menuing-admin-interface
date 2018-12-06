@@ -1,14 +1,10 @@
 <div class="col-md-10 offset-1">
   <form id="ingredient-form" class="form-search-ingredient" [formGroup]="ingredientForm" (ngSubmit)="onSubmit()">
-    <label for="name" class="sr-only">Ingredient Name</label>
-    <input type="text" id="name" class="form-control" [formControl]="ingredientForm.controls['name']" placeholder="Ingredient name" required #ingredient>
-    <div class="input-group">
-      <div class="input-group-prepend">
-        <span class="input-group-text">Nutrients</span>
-      </div>
-      <textarea class="form-control" id="nutrients" [formControl]="ingredientForm.controls['nutrients']" aria-label="Nutrients"></textarea>
+    <div class="form-group">
+      <label for="name">Ingredient Name</label>
+      <input type="text" id="name" class="form-control" [formControl]="ingredientForm.controls['name']" required #ingredient>
     </div>
     <p></p>
-    <button class="btn btn-lg btn-success" type="submit">Create ingredient</button>
+    <button class="btn btn-lg btn-secondary" type="submit">Create ingredient</button>
   </form>
 </div>
