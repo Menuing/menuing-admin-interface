@@ -11,29 +11,22 @@
     </div>
   </div>
 
+<p></p>
+<div class="row">
+  <div class="col-md-12" *ngFor="let recipe of recipes">
+    <div class="box p-3 mb-5 rounded" routerLink="/recipe/{{recipe.id}}">
+      <h5 class="card-subtitle">Name:</h5>
+      <p class="card-text">{{recipe.name}}</p>
 
-<div class="row p-3">
-  <div class="card col-md-12" *ngFor="let recipe of recipes">
-    <div class="card-body" routerLink="/recipe/{{recipe.id}}">
-      <h5 class="card-title">Name:<a routerLink="/recipe/{{recipe.id}}">{{recipe.name}}</a></h5>
-      
       <h5 class="card-subtitle">Id:</h5>
       <p class="card-text">{{recipe.id}}</p>
-      
-      <h5 class="card-subtitle">Ingredients:</h5>
-      <p class="card-text">{{recipe.ingredients}}</p>
-
-      <h5 class="card-subtitle">Instructions:</h5>
-      <p class="card-text">{{recipe.instructions}}</p>
-      
-      <h5 class="card-subtitle">Url:</h5>
-      <p class="card-text">{{recipe.urlPhoto}}</p>
 
       <h5 class="card-subtitle">Puntuació:</h5>
       <p class="card-text">{{recipe.averagePuntuation}}</p>
 
 
-      <p class="font-italic">click to see details</p>
+      <p class="font-italic click">click to see details</p>
     </div>
+    <p></p>
   </div>
 </div>
