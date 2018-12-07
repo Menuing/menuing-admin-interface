@@ -1,28 +1,30 @@
 <p></p>
-<div class="card col-md-10 offset-1">
-    <div class="card-body">
-      <h5 class="card-title">{{nutritionist.username}}:</h5>
-      
-      <h5 class="card-subtitle">Id:</h5>
-      <p class="card-text">{{nutritionist.id}}</p>
-      
-      <h5 class="card-subtitle">Puntuation:</h5>
-      <p class="card-text">{{nutritionist.averagePuntuation}}</p>
-  
-      <h5 class="card-subtitle">Premium:</h5>
-      <p class="card-text">{{nutritionist.isPremium}}</p>
+<div class="col-md-10 offset-1">
+    <div class="col-md-12">    
+      <div class="box p-3 mb-5 rounded"> 
+        <h5 class="card-title">{{nutritionist.username}}:</h5>
+        
+        <h5 class="card-subtitle">Id:</h5>
+        <p class="card-text">{{nutritionist.id}}</p>
+        
+        <h5 class="card-subtitle">Puntuation:</h5>
+        <p class="card-text">{{nutritionist.averagePuntuation}}</p>
+    
+        <h5 class="card-subtitle">Premium:</h5>
+        <p class="card-text">{{nutritionist.isPremium}}</p>
 
-      <h5 class="card-subtitle">Speciality:</h5>
-      <p class="card-text">{{nutritionist.speciallity}}</p>
-      
-      <h5 class="card-subtitle">DNI:</h5>
-      <p class="card-text">{{nutritionist.dni}}</p>
+        <h5 class="card-subtitle">Speciality:</h5>
+        <p class="card-text">{{nutritionist.speciallity}}</p>
+        
+        <h5 class="card-subtitle">DNI:</h5>
+        <p class="card-text">{{nutritionist.dni}}</p>
 
-      <h5 class="card-subtitle">Phone number:</h5>
-      <p class="card-text">{{nutritionist.phoneNumber}}</p>
+        <h5 class="card-subtitle">Phone number:</h5>
+        <p class="card-text">{{nutritionist.phoneNumber}}</p>
+      </div>
+      <button type="button" class="btn btn-secondary col-md-3">Modify nutritionist</button>
+      <p></p>
+      <button type="button" class="btn btn-danger col-md-3"  (click)="onDelete()">Delete nutritionist</button>
+      <p></p>
     </div>
-    <button type="button" class="btn btn-info col-md-2">Modify nutritionist</button>
-    <p></p>
-  <button type="button" class="btn btn-danger col-md-2"  (click)="onDelete()">Delete nutritionist</button>
-  <p></p>
 </div>
