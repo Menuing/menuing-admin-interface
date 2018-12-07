@@ -19,7 +19,7 @@ export class ListNutritionistComponent implements OnInit {
   constructor(private fb: FormBuilder, 
     private nutritionistService: NutritionistService) {
     this.searchNutritionistForm = this.fb.group({
-      'name': ['',  Validators.required]
+      'username': ['',  Validators.required]
     });}
 
   ngOnInit() {
@@ -34,7 +34,8 @@ export class ListNutritionistComponent implements OnInit {
 
   search() {
     var name = new Nutritionist(this.searchNutritionistForm.getRawValue()).username;
-    this.nutritionistService.getRecipeByName(name)
+    console.log(name);
+    this.nutritionistService.getNutritionistByName(name)
       .subscribe(
         (nutritionists: Nutritionist[]) => {
           this.nutritionists = nutritionists;
