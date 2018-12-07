@@ -77,7 +77,15 @@ export class RecipeService {
         'Content-Type':  'application/json'
       })
     };
-    
     return this.http.delete(`${environment.API}/api/resources/recipes/delete/${id}`, httpOptions);
+  }
+
+  deleteRecipeIngredient(id: Number) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json'
+      })
+    };
+    return this.http.delete(`${environment.API}/api/resources/recipesIngredients/delete/?recipeId=${id}`, httpOptions);
   }
 }
