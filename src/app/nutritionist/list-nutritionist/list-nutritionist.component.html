@@ -4,7 +4,7 @@
     <div class="col-md-12">
         <form class="form-search-nutritionist" [formGroup]="searchNutritionistForm" (submit)="search()">
             <label for="nutritionist" class="sr-only">Nutritionist name</label>
-            <input type="text" id="nutritionist" class="form-control" placeholder="Nutritionist name" required #nutritionist [formControl]="searchNutritionistForm.controls['name']" >
+            <input type="text" id="nutritionist" class="form-control" placeholder="Nutritionist name" required #nutritionist [formControl]="searchNutritionistForm.controls['username']" >
             <p></p>
             <button class="btn btn-lg btn-secondary" type="submit">Filter</button>
         </form>

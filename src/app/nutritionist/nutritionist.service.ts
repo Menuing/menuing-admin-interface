@@ -29,7 +29,7 @@ export class NutritionistService{
       return this.http.get(`${environment.API}/api/resources/nutritionists/id/${Number(id)}`, httpOptions);
     }
 
-    getRecipeByName(name: string) {
+    getNutritionistByName(name: string) {
       const httpOptions = {
         headers: new HttpHeaders({
           'Content-Type':  'application/json'
