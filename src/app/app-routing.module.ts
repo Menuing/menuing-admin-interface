@@ -18,7 +18,7 @@ export const routes: Routes = [
   {path: 'recipes', component: RecipeCheckComponent},
   {path: 'recipe/:id', component: RecipeDetailComponent},
   {path: 'recipe-add', component: AddRecipeComponent},
-  {path: 'recipe-modify', component: ModifyRecipeComponent},
+  {path: 'recipe-modify/:id', component: ModifyRecipeComponent},
   {path: 'nutritionists', component: ListNutritionistComponent},
   {path: 'nutritionist/:id', component: DetailNutritionistComponent},
   {path: 'nutritionist-add', component: AddNutritionistComponent},
