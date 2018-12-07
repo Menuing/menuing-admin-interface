@@ -43,7 +43,6 @@ export class RecipeDetailComponent implements OnInit {
           },
           error => this.errorMessage = <any>error.message
         );
-        this.router.navigate(['/recipes/']);
       },
       error => this.errorMessage = <any>error.message
     );
