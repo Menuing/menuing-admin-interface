@@ -6,6 +6,7 @@ import { RecipesIngredients } from '../recipesIngredients';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { IngredientService } from '../../ingredient/ingredient.service'
 import { Ingredient } from 'src/app/ingredient/ingredient';
+import { ConsoleReporter } from 'jasmine';
 
 
 @Component({
@@ -16,6 +17,7 @@ import { Ingredient } from 'src/app/ingredient/ingredient';
 export class ModifyRecipeComponent implements OnInit {
 
   recipe :Recipe;
+  newRecipe:Recipe;
   recipesIngredients:RecipesIngredients[];
   errorMessage = '';
 
@@ -52,6 +54,13 @@ export class ModifyRecipeComponent implements OnInit {
       .subscribe(
         (recipe: Recipe) => {
           this.recipe = recipe;
+          console.log(this.recipe);
+          Object.keys(this.recipe).forEach(key => {
+            if(this.recipeForm.controls[key] != undefined){
+              this.recipeForm.controls[key].setValue(this.recipe[key]);
+            }
+          });
+          console.log(this.recipeForm);
           this.recipeService.getRecipeIngredientByRecipe(this.recipe.id)
           .subscribe(
             (recipesIngredients: RecipesIngredients[]) => {
@@ -87,13 +96,30 @@ export class ModifyRecipeComponent implements OnInit {
           itemsShowLimit: 5,
           allowSearchFilter: true
         };
-        console.log(this.dropdownIngredients);
       },
       error => this.errorMessage = <any>error.message);
+    
     
   }
 
   onSubmit(){
+    console.log(this.recipe);
+    this.newRecipe = new Recipe(this.recipeForm.getRawValue());
+    this.newRecipe.averagePuntuation = this.recipe.averagePuntuation;
+    console.log(this.newRecipe);
+    this.recipeService.modifyRecipe(this.newRecipe)
+      .subscribe(
+        recipe => {
+          this.router.navigate(['/recipes/'])
+          this.recipeService.deleteRecipeIngredient(this.recipe.id);
+          for(var i=0;i<this.selectedIngredients.length;i++){
+            this.recipeService.addRecipeIngredient(this.selectedIngredients[i], this.recipe)
+            .subscribe()
+          }
+        },
+        error => {
+          this.errorMessage = error.errors ? <any>error.errors[0].message : <any>error.message;
+        });
     
   }
 
@@ -104,10 +130,19 @@ export class ModifyRecipeComponent implements OnInit {
       return listItem.id === id;
     });
     this.selectedIngredients.splice(index, 1);
+    console.log(this.selectedIngredients)
   }
 
   onItemSelect(item: any) {
-    this.selectedIngredients.push(item);
+    var index = this.selectedIngredients.indexOf(item,0);
+    var id = item.id;
+    var index = this.selectedIngredients.findIndex(function(listItem, i){
+      return listItem.id === id;
+    });
+    if(index!==-1){
+      this.selectedIngredients.push(item);
+    }
+    console.log(this.selectedIngredients)
   }
 
   onSelectAll(items: any) {

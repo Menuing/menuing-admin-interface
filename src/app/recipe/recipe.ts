@@ -19,7 +19,7 @@ export class Recipe{
 
     urlPhoto:string;
 
-    averagePunctuation:number;
+    averagePuntuation:number;
 
     constructor(values: Object = {}) {
         Object.assign(this, values);

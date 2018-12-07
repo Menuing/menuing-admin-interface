@@ -47,4 +47,8 @@ export class RecipeDetailComponent implements OnInit {
       error => this.errorMessage = <any>error.message
     );
   }
+
+  onModify(){
+    this.router.navigate(['/recipe-modify/'+this.recipe.id]);
+  }
 }
