@@ -56,4 +56,13 @@ export class IngredientService{
       
       return this.http.delete(`${environment.API}/api/resources/ingredients/delete/${id}`, httpOptions);
     }
+
+    modifyIngredient(ingredient: Ingredient) {
+      const httpOptions = {
+        headers: new HttpHeaders({
+          'Content-Type':  'application/json'
+        })
+      };
+      return this.http.put<Ingredient>(`${environment.API}/api/resources/ingredients`, ingredient, httpOptions);
+    }
 }

@@ -20,6 +20,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NutritionistService } from './nutritionist/nutritionist.service';
 import { IngredientService } from './ingredient/ingredient.service';
 import { AddIngredientComponent } from './ingredient/add-ingredient/add-ingredient.component';
+import { ModifyIngredientComponent } from './ingredient/modify-ingredient/modify-ingredient.component';
 import { ListIngredientComponent } from './ingredient/list-ingredient/list-ingredient.component';
 import { DetailIngredientComponent } from './ingredient/detail-ingredient/detail-ingredient.component';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
@@ -37,6 +38,7 @@ import { CommonModule } from '@angular/common';
     ListNutritionistComponent,
     DetailNutritionistComponent,
     AddIngredientComponent,
+    ModifyIngredientComponent,
     ListIngredientComponent,
     DetailIngredientComponent
   ],
