@@ -1,0 +1,31 @@
+<div class="col-md-10 offset-1">
+    <form id="nutritionist-form" class="form-search-nutritionist" [formGroup]="nutritionistForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="id">Nutritionist Id</label>
+        <input type="text" id="id" class="form-control" [formControl]="nutritionistForm.controls['id']">
+      </div>
+      <div class="form-group">
+        <label for="username">Nutritionist Username</label>
+        <input type="text" id="username" class="form-control" [formControl]="nutritionistForm.controls['username']">
+      </div>
+      <div class="form-group">
+        <label for="password">Nutritionist Password</label>
+        <input type="password" id="password" class="form-control" [formControl]="nutritionistForm.controls['password']">
+      </div>
+      <div class="form-group">
+        <label for="speciallity">Nutritionist speciality</label>
+        <input type="text" id="speciallity" class="form-control" [formControl]="nutritionistForm.controls['speciallity']">
+      </div>
+      <div class="form-group">
+        <label for="dni">DNI</label>
+        <input type="text" id="dni" class="form-control" [formControl]="nutritionistForm.controls['dni']">
+      </div>
+      <div class="form-group">
+        <label for="phoneNumber">Phone number</label>
+        <input type="text" id="phoneNumber" class="form-control" [formControl]="nutritionistForm.controls['phoneNumber']">
+      </div>
+      <p></p>
+      <button class="btn btn-lg btn-secondary" type="submit">Modify nutritionist</button>
+      <p></p>
+    </form>
+  </div>

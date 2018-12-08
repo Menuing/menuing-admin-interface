@@ -10,6 +10,7 @@ import { RecipeDetailComponent } from './recipe/recipe-detail/recipe-detail.comp
 import { AddRecipeComponent } from './recipe/add-recipe/add-recipe.component';
 import { ModifyRecipeComponent } from './recipe/modify-recipe/modify-recipe.component';
 import { AddNutritionistComponent } from './nutritionist/add-nutritionist/add-nutritionist.component';
+import { ModifyNutritionistComponent } from './nutritionist/modify-nutritionist/modify-nutritionist.component';
 import { ListNutritionistComponent } from './nutritionist/list-nutritionist/list-nutritionist.component';
 import { DetailNutritionistComponent } from './nutritionist/detail-nutritionist/detail-nutritionist.component';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -35,6 +36,7 @@ import { CommonModule } from '@angular/common';
     AddRecipeComponent,
     ModifyRecipeComponent,
     AddNutritionistComponent,
+    ModifyNutritionistComponent,
     ListNutritionistComponent,
     DetailNutritionistComponent,
     AddIngredientComponent,

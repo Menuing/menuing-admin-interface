@@ -8,6 +8,7 @@ import { ModifyRecipeComponent } from './recipe/modify-recipe/modify-recipe.comp
 import { ListNutritionistComponent } from './nutritionist/list-nutritionist/list-nutritionist.component';
 import { DetailNutritionistComponent } from './nutritionist/detail-nutritionist/detail-nutritionist.component';
 import { AddNutritionistComponent } from './nutritionist/add-nutritionist/add-nutritionist.component';
+import { ModifyNutritionistComponent } from './nutritionist/modify-nutritionist/modify-nutritionist.component';
 import { ListIngredientComponent } from './ingredient/list-ingredient/list-ingredient.component';
 import { AddIngredientComponent } from './ingredient/add-ingredient/add-ingredient.component';
 import { ModifyIngredientComponent } from './ingredient/modify-ingredient/modify-ingredient.component';
@@ -23,6 +24,7 @@ export const routes: Routes = [
   {path: 'nutritionists', component: ListNutritionistComponent},
   {path: 'nutritionist/:id', component: DetailNutritionistComponent},
   {path: 'nutritionist-add', component: AddNutritionistComponent},
+  {path: 'nutritionist-modify/:id', component: ModifyNutritionistComponent},
   {path: 'ingredients', component: ListIngredientComponent},
   {path: 'ingredient-add', component: AddIngredientComponent},
   {path: 'ingredient-modify/:id', component: ModifyIngredientComponent},
