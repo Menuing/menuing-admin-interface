@@ -41,21 +41,17 @@ export class ModifyIngredientComponent implements OnInit {
       .subscribe(
         (ingredient: Ingredient) => {
           this.ingredient = ingredient;
-          console.log(this.ingredient);
           Object.keys(this.ingredient).forEach(key => {
             if(this.ingredientForm.controls[key] != undefined){
               this.ingredientForm.controls[key].setValue(this.ingredient[key]);
             }
           });
-          console.log(this.ingredientForm);
         },
         error => this.errorMessage = <any>error.message);
   }
 
   onSubmit(){
-    console.log(this.ingredient);
     this.newIngredient = new Ingredient(this.ingredientForm.getRawValue());
-    console.log(this.newIngredient);
     this.ingredientService.modifyIngredient(this.newIngredient)
       .subscribe(
         ingredient => {

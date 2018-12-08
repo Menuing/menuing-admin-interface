@@ -34,7 +34,6 @@ export class ListNutritionistComponent implements OnInit {
 
   search() {
     var name = new Nutritionist(this.searchNutritionistForm.getRawValue()).username;
-    console.log(name);
     this.nutritionistService.getNutritionistByName(name)
       .subscribe(
         (nutritionists: Nutritionist[]) => {

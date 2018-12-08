@@ -22,7 +22,6 @@ export class LoginComponent implements OnInit {
     private loginService: LoginService){}
     
   ngOnInit() {
-    console.log("entra");
     this.loginForm = this.fb.group({
       'username': ['',  Validators.required],
       'password': ['',  Validators.required]
@@ -35,7 +34,6 @@ export class LoginComponent implements OnInit {
       .subscribe(
         (admin: Admin) => {
           this.receivedAdmin = admin;
-          console.log(this.receivedAdmin[0]);
           if(this.receivedAdmin[0] == null ||
             this.receivedAdmin[0].password == null || 
           this.admin.password !== this.receivedAdmin[0].password){
@@ -45,8 +43,6 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['/recipes/']);
         },
         error => this.errorMessage = <any>error.message);
-    
-    console.log(this.admin);
     
   }
 

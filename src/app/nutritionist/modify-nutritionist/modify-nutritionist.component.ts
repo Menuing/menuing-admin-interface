@@ -45,21 +45,17 @@ export class ModifyNutritionistComponent implements OnInit {
       .subscribe(
         (nutritionist: Nutritionist) => {
           this.nutritionist = nutritionist;
-          console.log(this.nutritionist);
           Object.keys(this.nutritionist).forEach(key => {
             if(this.nutritionistForm.controls[key] != undefined){
               this.nutritionistForm.controls[key].setValue(this.nutritionist[key]);
             }
           });
-          console.log(this.nutritionistForm);
         },
         error => this.errorMessage = <any>error.message);
   }
 
   onSubmit(){
-    console.log(this.nutritionist);
     this.newNutritionist = new Nutritionist(this.nutritionistForm.getRawValue());
-    console.log(this.newNutritionist);
     this.nutritionistService.modifyNutritionist(this.newNutritionist)
       .subscribe(
         nutritionist => {
