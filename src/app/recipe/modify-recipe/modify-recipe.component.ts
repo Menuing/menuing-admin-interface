@@ -111,7 +111,7 @@ export class ModifyRecipeComponent implements OnInit {
       .subscribe(
         recipe => {
           this.router.navigate(['/recipes/'])
-          this.recipeService.deleteRecipeIngredient(this.recipe.id);
+          this.recipeService.deleteRecipeIngredient(this.recipe.id).subscribe();
           for(var i=0;i<this.selectedIngredients.length;i++){
             this.recipeService.addRecipeIngredient(this.selectedIngredients[i], this.recipe)
             .subscribe()
@@ -124,24 +124,10 @@ export class ModifyRecipeComponent implements OnInit {
   }
 
   onItemDeSelect(item: any){
-    var index = this.selectedIngredients.indexOf(item,0);
-    var id = item.id;
-    var index = this.selectedIngredients.findIndex(function(listItem, i){
-      return listItem.id === id;
-    });
-    this.selectedIngredients.splice(index, 1);
     console.log(this.selectedIngredients)
   }
 
   onItemSelect(item: any) {
-    var index = this.selectedIngredients.indexOf(item,0);
-    var id = item.id;
-    var index = this.selectedIngredients.findIndex(function(listItem, i){
-      return listItem.id === id;
-    });
-    if(index!==-1){
-      this.selectedIngredients.push(item);
-    }
     console.log(this.selectedIngredients)
   }
 

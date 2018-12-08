@@ -90,6 +90,7 @@ export class RecipeService {
   }
 
   deleteRecipeIngredient(id: Number) {
+    console.log("HEYYY")
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type':  'application/json'
