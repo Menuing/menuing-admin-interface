@@ -1,32 +1,55 @@
 <div class="col-md-10 offset-1">
-  <form class="form-search-recipe" [formGroup]="modifyRecipeForm" (submit)="modifyRecipe(recipe)">
-    <h5>Recipe id 1</h5>
-    <label for="recipe" class="sr-only">Recipe Name</label>
-    <input type="text" id="recipe" class="form-control" placeholder="Recipe name" value="Truita de patates" required #recipe>
-    <div class="input-group">
-      <div class="input-group-prepend">
-        <span class="input-group-text">Ingredients</span>
+    <form id="recipe-form" class="form-search-recipe" [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="id">Recipe Id</label>
+        <input type="text" class="form-control" id="id" [formControl]="recipeForm.controls['id']" aria-label="Recipe id" readonly> 
       </div>
-      <textarea class="form-control" aria-label="Ingredients">
-2 Ous
-2 patates
-Oli
-Sal
-      </textarea>
-    </div>
-    <div class="input-group">
-      <div class="input-group-prepend">
-        <span class="input-group-text">Instructions</span>
+      <div class="form-group">
+        <label for="name">Recipe Name</label>
+        <input type="text" class="form-control" id="name" [formControl]="recipeForm.controls['name']" aria-label="Recipe name" > 
       </div>
-      <textarea class="form-control" aria-label="Instructions">
-1. Trencar 2 ous, tirar sal i remenar en un plat fons.
-2. Pelar i tallar 1-2 patates.
-3. Fregir una mica les patates.
-4. Tirar els ous remenats i les patates en una paella gran.
-5. Fer a foc mig pels dos costats.
-      </textarea>
-    </div>
-    <p></p>
-    <button class="btn btn-lg btn-success" type="submit">Update recipe</button>
-  </form>
-</div>
+      <div class="form-group">
+        <label for="instructions">Instructions</label>
+        <input type="text" class="form-control" id="instructions" [formControl]="recipeForm.controls['instructions']" aria-label="Instructions"> 
+      </div>
+      <div class="form-group">
+          <label for="proportions">Ingredients proportions</label>
+          <input type="text" class="form-control" id="proportions" [formControl]="recipeForm.controls['proportions']" aria-label="Proportions"> 
+      </div>
+      <div class="form-group">
+          <label for="calories">Calories</label>
+          <input type="text" class="form-control" id="calories" [formControl]="recipeForm.controls['calories']" aria-label="Calories"> 
+      </div>
+      <div class="form-group">
+          <label for="fat">Fat</label>
+          <input type="text" class="form-control" id="fat" [formControl]="recipeForm.controls['fat']" aria-label="Fat"> 
+      </div>
+      <div class="form-group">
+          <label for="protein">Protein</label>
+          <input type="text" class="form-control" id="protein" [formControl]="recipeForm.controls['protein']" aria-label="Protein"> 
+      </div>
+      <div class="form-group">
+          <label for="sodium">Sodium</label>
+          <input type="text" class="form-control" id="sodium" [formControl]="recipeForm.controls['sodium']" aria-label="Sodium"> 
+      </div>
+      <div class="form-group">
+          <label for="recipeIngredients">Tags</label>
+          <ng-multiselect-dropdown class="" [ngModelOptions]="{standalone: true}"
+              [placeholder]="'custom placeholder'"
+              [data]="dropdownIngredients"
+              [(ngModel)]="selectedIngredients"
+              [settings]="dropdownSettings"
+              (onSelect)="onItemSelect($event)"
+              (onDeSelect)="onItemDeSelect($event)"
+              (onSelectAll)="onSelectAll($event)"
+          ></ng-multiselect-dropdown>
+      </div>
+      <div class="form-group">
+          <label for="urlPhoto">URL Photo</label>
+          <input type="text" class="form-control" id="urlPhoto" [formControl]="recipeForm.controls['urlPhoto']" aria-label="urlPhoto"> 
+      </div>
+      <p></p>
+      <button class="btn btn-lg btn-secondary" type="submit">Modify recipe</button>
+      <p></p>
+    </form>
+  </div>

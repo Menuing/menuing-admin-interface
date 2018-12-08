@@ -62,7 +62,6 @@ export class AddRecipeComponent implements OnInit {
           console.log(this.dropdownIngredients);
         },
         error => this.errorMessage = <any>error.message);
-    
   }
 
   onSubmit(): void {

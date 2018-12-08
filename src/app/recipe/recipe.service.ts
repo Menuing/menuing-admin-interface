@@ -58,6 +58,15 @@ export class RecipeService {
     return this.http.post<Recipe>(`${environment.API}/api/resources/recipes`, recipe, httpOptions);
   }
 
+  modifyRecipe(recipe: Recipe) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json'
+      })
+    };
+    return this.http.put<Recipe>(`${environment.API}/api/resources/recipes`, recipe, httpOptions);
+  }
+
   addRecipeIngredient(selectedItem:Ingredient, recipe:Recipe){
     const httpOptions = {
       headers: new HttpHeaders({
@@ -81,6 +90,7 @@ export class RecipeService {
   }
 
   deleteRecipeIngredient(id: Number) {
+    console.log("HEYYY")
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type':  'application/json'
