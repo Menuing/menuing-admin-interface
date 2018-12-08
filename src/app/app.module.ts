@@ -10,6 +10,7 @@ import { RecipeDetailComponent } from './recipe/recipe-detail/recipe-detail.comp
 import { AddRecipeComponent } from './recipe/add-recipe/add-recipe.component';
 import { ModifyRecipeComponent } from './recipe/modify-recipe/modify-recipe.component';
 import { AddNutritionistComponent } from './nutritionist/add-nutritionist/add-nutritionist.component';
+import { ModifyNutritionistComponent } from './nutritionist/modify-nutritionist/modify-nutritionist.component';
 import { ListNutritionistComponent } from './nutritionist/list-nutritionist/list-nutritionist.component';
 import { DetailNutritionistComponent } from './nutritionist/detail-nutritionist/detail-nutritionist.component';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -20,6 +21,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NutritionistService } from './nutritionist/nutritionist.service';
 import { IngredientService } from './ingredient/ingredient.service';
 import { AddIngredientComponent } from './ingredient/add-ingredient/add-ingredient.component';
+import { ModifyIngredientComponent } from './ingredient/modify-ingredient/modify-ingredient.component';
 import { ListIngredientComponent } from './ingredient/list-ingredient/list-ingredient.component';
 import { DetailIngredientComponent } from './ingredient/detail-ingredient/detail-ingredient.component';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
@@ -34,9 +36,11 @@ import { CommonModule } from '@angular/common';
     AddRecipeComponent,
     ModifyRecipeComponent,
     AddNutritionistComponent,
+    ModifyNutritionistComponent,
     ListNutritionistComponent,
     DetailNutritionistComponent,
     AddIngredientComponent,
+    ModifyIngredientComponent,
     ListIngredientComponent,
     DetailIngredientComponent
   ],

@@ -32,4 +32,8 @@ export class DetailIngredientComponent implements OnInit {
       error => this.errorMessage = <any>error.message
     );
   }
+
+  onModify(){
+    this.router.navigate(['/ingredient-modify/'+this.ingredient.id]);
+  }
 }

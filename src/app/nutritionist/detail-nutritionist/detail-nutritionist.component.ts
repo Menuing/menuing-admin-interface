@@ -34,4 +34,8 @@ export class DetailNutritionistComponent implements OnInit {
     );
   }
 
+  onModify(){
+    this.router.navigate(['/nutritionist-modify/'+this.nutritionist.id]);
+  }
+
 }

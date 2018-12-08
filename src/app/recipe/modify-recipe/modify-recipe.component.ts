@@ -53,13 +53,11 @@ export class ModifyRecipeComponent implements OnInit {
       .subscribe(
         (recipe: Recipe) => {
           this.recipe = recipe;
-          console.log(this.recipe);
           Object.keys(this.recipe).forEach(key => {
             if(this.recipeForm.controls[key] != undefined){
               this.recipeForm.controls[key].setValue(this.recipe[key]);
             }
           });
-          console.log(this.recipeForm);
           this.recipeService.getRecipeIngredientByRecipe(this.recipe.id)
           .subscribe(
             (recipesIngredients: RecipesIngredients[]) => {
@@ -102,10 +100,8 @@ export class ModifyRecipeComponent implements OnInit {
   }
 
   onSubmit(){
-    console.log(this.recipe);
     this.newRecipe = new Recipe(this.recipeForm.getRawValue());
     this.newRecipe.averagePuntuation = this.recipe.averagePuntuation;
-    console.log(this.newRecipe);
     this.recipeService.modifyRecipe(this.newRecipe)
       .subscribe(
         recipe => {
