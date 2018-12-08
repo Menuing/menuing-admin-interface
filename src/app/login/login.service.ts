@@ -16,7 +16,7 @@ export class LoginService {
       })
     };
 
-    return this.http.get(`${environment.API}/api/resources/users`, httpOptions);
+    return this.http.get(`${environment.API}/api/resources/admins`, httpOptions);
   }
 
   getUser(username: string) {
