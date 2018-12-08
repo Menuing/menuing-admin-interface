@@ -6,7 +6,6 @@ import { RecipesIngredients } from '../recipesIngredients';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { IngredientService } from '../../ingredient/ingredient.service'
 import { Ingredient } from 'src/app/ingredient/ingredient';
-import { ConsoleReporter } from 'jasmine';
 
 
 @Component({
@@ -114,7 +113,7 @@ export class ModifyRecipeComponent implements OnInit {
           this.recipeService.deleteRecipeIngredient(this.recipe.id).subscribe();
           for(var i=0;i<this.selectedIngredients.length;i++){
             this.recipeService.addRecipeIngredient(this.selectedIngredients[i], this.recipe)
-            .subscribe()
+            .subscribe();
           }
         },
         error => {
