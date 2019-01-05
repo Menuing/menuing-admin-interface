@@ -11,8 +11,10 @@
       <p class="card-text">{{recipe.instructions}}</p>
 
       <h5 class="card-subtitle">Proportions:</h5>
-      <p class="card-text">{{recipe.proportions}}</p>
-      
+      <div *ngFor="let proportion of proportions">
+        <p class="card-text">-{{proportion}}</p>
+      </div>
+
       <h5 class="card-subtitle">Calories:</h5>
       <p class="card-text">{{recipe.calories}}</p>
 

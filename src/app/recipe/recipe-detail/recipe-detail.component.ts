@@ -12,6 +12,7 @@ import { RecipesIngredients } from '../recipesIngredients';
 export class RecipeDetailComponent implements OnInit {
 
   recipe :Recipe;
+  proportions : string[];
   recipesIngredients:RecipesIngredients[];
   errorMessage = '';
 
@@ -23,6 +24,7 @@ export class RecipeDetailComponent implements OnInit {
       .subscribe(
         (recipe: Recipe) => {
           this.recipe = recipe;
+          this.proportions = recipe.proportions.split(';');
           this.recipeService.getRecipeIngredientByRecipe(this.recipe.id)
           .subscribe(
             (recipesIngredients: RecipesIngredients[]) => {
