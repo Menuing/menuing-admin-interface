@@ -18,6 +18,7 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   receivedAdmin:Admin;
 
+
   constructor(private fb:FormBuilder, 
     private route:ActivatedRoute, 
     private router: Router, 
@@ -31,8 +32,7 @@ export class LoginComponent implements OnInit {
     });
 
     let element = this.document.getElementsByClassName('navbar')[0];
-    console.log(element)
-    element.style.display = element.style.display === 'none' ? 'block' : 'none';
+    element.style.display =  'none';
   }
 
   login():void {
@@ -41,6 +41,8 @@ export class LoginComponent implements OnInit {
       .subscribe(
         (admin: Admin) => {
           this.receivedAdmin = admin;
+          let element = this.document.getElementsByClassName('navbar')[0];
+          element.style.display = 'block';
           if(this.receivedAdmin[0] == null ||
             this.receivedAdmin[0].password == null || 
           this.admin.password !== this.receivedAdmin[0].password){
