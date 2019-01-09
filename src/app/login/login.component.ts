@@ -4,6 +4,8 @@ import {ActivatedRoute} from '@angular/router';
 import { LoginService } from './login.service';
 import { Admin } from './admin';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { Inject, Injectable } from '@angular/core';
+import { DOCUMENT } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-login',
@@ -19,13 +21,18 @@ export class LoginComponent implements OnInit {
   constructor(private fb:FormBuilder, 
     private route:ActivatedRoute, 
     private router: Router, 
-    private loginService: LoginService){}
+    private loginService: LoginService,
+    @Inject(DOCUMENT) private document: any){}
     
   ngOnInit() {
     this.loginForm = this.fb.group({
       'username': ['',  Validators.required],
       'password': ['',  Validators.required]
     });
+
+    let element = this.document.getElementsByClassName('navbar')[0];
+    console.log(element)
+    element.style.display = element.style.display === 'none' ? 'block' : 'none';
   }
 
   login():void {
