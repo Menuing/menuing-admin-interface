@@ -26,6 +26,8 @@ import { ListIngredientComponent } from './ingredient/list-ingredient/list-ingre
 import { DetailIngredientComponent } from './ingredient/detail-ingredient/detail-ingredient.component';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { CommonModule } from '@angular/common';
+import { FirebaseComponent } from './firebase/firebase.component';
+import { FirebaseService } from './firebase/firebase.service';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,8 @@ import { CommonModule } from '@angular/common';
     AddIngredientComponent,
     ModifyIngredientComponent,
     ListIngredientComponent,
-    DetailIngredientComponent
+    DetailIngredientComponent,
+    FirebaseComponent
   ],
   imports: [
     BrowserModule,
@@ -55,7 +58,7 @@ import { CommonModule } from '@angular/common';
     RouterModule.forRoot(routes),
     NgMultiSelectDropDownModule.forRoot()
   ],
-  providers: [RecipeService, LoginService, NutritionistService, IngredientService],
+  providers: [RecipeService, LoginService, NutritionistService, IngredientService, FirebaseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
